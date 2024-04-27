@@ -17,12 +17,13 @@ tar zxf Python-3.9.2.tgz
 ./configure --enable-optimizations --with-ensurepip=install
 sudo make altinstall
 
-run retropie installer and install SDL package
+5. run retropie installer and install SDL package
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 cd RetroPie-Setup
 sudo ./retropie_setup.sh
 
-Copy OS4 Files to bookworm
+
+6. Copy OS4 Files to bookworm
 Copy /opt from os4 image to /opt in bookworm
 Copy .config/retroarch
 Copy udev rules
