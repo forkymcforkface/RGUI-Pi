@@ -1,4 +1,4 @@
-1. Install bookworm lite onto sd card
+1. Install 64bit bookworm lite onto sd card
 - enable ssh
 - modify rootpw and allow root ssh
 
