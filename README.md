@@ -4,7 +4,7 @@
 
 2. Install DPIDAC for scart cable driver
 - https://github.com/forkymcforkface/rpi-dpidac
-- modify timings.txt location to /opt/rgbpi/ui/data/timings.dat
+- modify the timings.txt location to /opt/rgbpi/ui/data/timings.dat
 
 3. Compile retroarch
 - https://github.com/forkymcforkface/RetroArch
@@ -24,7 +24,7 @@
 
 
 6. Copy OS4 Files to bookworm
-- Copy /opt from os4 image to /opt in bookworm
+- Copy /opt from os4 image to /opt in bookworm. replace RetroArch binary with the one you compiled.
 - Copy .config/retroarch
 - Copy udev rules
 - Copy any boot or shutdown services
