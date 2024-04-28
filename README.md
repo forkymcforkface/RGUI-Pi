@@ -38,7 +38,7 @@
     *   Copy udev rules.
     *   Copy any boot or shutdown services.
     *   Copy `config.txt` to `boot/config.txt` even though it says don't write to that file (gets rid of RGBPi device warning).
-    *   Copy Python /usr/lib/python3/dist-packages directly from OS4 image to /usr/local/lib/python3.9/site-packages. Installing the same versions manually does not work for some reason and video wont init
+    *   Copy Python all files in /usr/lib/python3/dist-packages directly from OS4 image into /usr/local/lib/python3.9/site-packages. Installing the same versions manually does not work for some reason and video wont init
     *   Run `pip list` to confirm they are installed.
 
 
