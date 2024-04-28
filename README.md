@@ -5,8 +5,7 @@
 
 2. **Install DPIDAC for SCART cable driver**
    - [GitHub Repository: forkymcforkface/rpi-dpidac](https://github.com/forkymcforkface/rpi-dpidac)
-   - Modify the `timings.txt` location to `/opt/rgbpi/ui/data/timings.dat`.
-   - reboot
+   - reboot and you will now have video via scart.
 
 3. **Compile RetroArch**
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
