@@ -13,11 +13,17 @@
 
 4. **Compile and altinstall Python 3.9.2** (or download precompiled one here and altinstall)
    ```markdown
-   sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim
+   sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev
    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
    tar zxf Python-3.9.2.tgz
-   ./configure --enable-optimizations --with-ensurepip=install
+   cd Python-3.9.2/
+   ./configure --enable-shared --enable-ipv6 --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
    sudo make altinstall
+   python3.9 -m pip install Pillow==9.1.1
+   python3.9 -m pip install smbus==1.1.post2
+   python3.9 -m pip install psutil==5.9.1
+   python3.9 -m pip install evdev==1.5.0
+   python3.9 -m pip install pyalsaaudio==0.9.2
 
 *   **Run RetroPie installer and install SDL2 package**
     ```markdown 
