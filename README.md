@@ -20,8 +20,10 @@
    sudo make altinstall
 
 *   **Run RetroPie installer and install SDL2 package**
-      
-    `git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git cd RetroPie-Setup sudo ./retropie_setup.sh`
+    ```markdown 
+    git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+    cd RetroPie-Setup
+    sudo ./retropie_setup.sh
     
 *   **Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
