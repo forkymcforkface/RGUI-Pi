@@ -61,11 +61,9 @@
    chmod +x Install-OS4.sh
    ./Install-OS4.sh
 
-
-
 Known problems
 - wifi may not connect right away, may take a reboot after typing password in
 - ui is not 100% smooth, this does not affect retroarch
-- interlaced games do not work, at least for me. timings are all wonky. More research needed.
-- working on kodi, has the same interlace issue
+- interlaced games do not work, Kernel needs to be patched
+- Kodi is not installed just yet
 - not all cores are optimized for pi5. N64, Dreamcast, Naomi dont work right now. Need to do more research/compile new cores.
