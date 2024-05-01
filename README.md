@@ -47,12 +47,9 @@
 7. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
-   sudo systemctl stop apparmor.service
    sudo systemctl disable apparmor.service
-   sudo systemctl stop watchdog
    sudo systemctl disable watchdog
    sudo systemctl disable NetworkManager
-   sudo systemctl stop NetworkManager
    sudo systemctl disable glamor-test.service
    
    sudo apt-get update
