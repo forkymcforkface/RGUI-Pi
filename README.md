@@ -72,3 +72,13 @@ Known problems
 - interlaced games do not work, Kernel needs to be patched
 - Kodi is not installed just yet
 - not all cores are optimized for pi5. N64, Dreamcast, Naomi dont work right now. Need to do more research/compile new cores.
+
+**Optional**
+ - Install XONE for Xbox controller support
+   ```markdown 
+   sudo apt-get install -y dkms cabextract
+   git clone https://github.com/medusalix/xone
+   cd xone
+   sudo ./install.sh
+   sudo xone-get-firmware.sh
+   ```
