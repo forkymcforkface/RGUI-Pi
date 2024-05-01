@@ -41,6 +41,8 @@
    python3.9 -m pip install psutil==5.9.1
    python3.9 -m pip install evdev==1.5.0
    python3.9 -m pip install pyalsaaudio==0.9.2
+   python3.9 -m pip install FBpyGIF==1.0.5
+   python3.9 -m pip install setproctitle==1.2.3
 
 7. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
