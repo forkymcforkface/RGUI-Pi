@@ -1,0 +1,1 @@
+dwc_otg.lpm_enable=0 root=/dev/mmcblk0p2 rootfstype=ext4 vt.global_cursor_default=0 loglevel=0 logo.nologo nowatchdog rootwait fastboot noswap ipv6.disable=1 vt.default_red=0,0,0,0,0,0,0,0 vt.default_grn=0,0,0,0,0,0,0,0 vt.default_blu=0,0,0,0,0,0,0,0

@@ -1,0 +1,14 @@
+[Unit]
+Description=Powerdown Image
+DefaultDependencies=no
+Before=shutdown.target
+
+[Service]
+ExecStart=/usr/bin/python3.9 /opt/rgbpi/ui/framebuffer_write.pyc -img /opt/rgbpi/ui/images/powerdown.bmp
+Type=oneshot
+StandardOutput=null
+StandardError=null
+LogLevelMax=emerg
+
+[Install]
+WantedBy=shutdown.target umount.target
