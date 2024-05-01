@@ -6,14 +6,14 @@
 
 2. **Install DPIDAC for SCART cable driver**
    ```markdown
-   apt install git
-   apt install raspberrypi-kernel-headers
+   apt install git -y
+   apt install raspberrypi-kernel-headers -y
    git clone https://github.com/forkymcforkface/rpi-dpidac
    cd rpi-dpidac
    make
    make install
 
-4. **Compile RetroArch**
+4. **Compile RetroArch** (or download precompiled one here)
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
    - Go to the bottom and modify 64bit compile without FFMPEG.
 
