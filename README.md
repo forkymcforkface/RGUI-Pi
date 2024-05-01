@@ -53,7 +53,7 @@
    sudo apt-get install -y dhcpcd5
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
-8. **Copy OS4 Files to bookworm**
+8. **Copy OS4 Files to bookworm** (To keep size down this does not include scaper images, and only the default megatech theme.)
    
    ```markdown
    git clone https://github.com/forkymcforkface/RGBPi-Bookworm
@@ -61,11 +61,9 @@
    chmod +x Install-OS4.sh
    ./Install-OS4.sh
 
-
-
 Known problems
 - wifi may not connect right away, may take a reboot after typing password in
 - ui is not 100% smooth, this does not affect retroarch
-- interlaced games do not work, at least for me. timings are all wonky. More research needed.
-- working on kodi, has the same interlace issue
+- interlaced games do not work, Kernel needs to be patched
+- Kodi is not installed just yet
 - not all cores are optimized for pi5. N64, Dreamcast, Naomi dont work right now. Need to do more research/compile new cores.
