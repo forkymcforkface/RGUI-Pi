@@ -24,7 +24,8 @@
    tar zxf Python-3.9.2.tgz
    cd Python-3.9.2/
    ./configure --enable-shared --prefix=/usr --enable-ipv6 --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
-   sudo make altinstall
+   make -j5
+   make altinstall
    python3.9 -m pip install Pillow==9.1.1
    python3.9 -m pip install smbus==1.1.post2
    python3.9 -m pip install psutil==5.9.1
