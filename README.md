@@ -53,7 +53,7 @@
    sudo apt-get install -y dhcpcd5
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
-8. **Copy OS4 Files to bookworm**
+8. **Copy OS4 Files to bookworm** (To keep size down this does not include scaper images, and only the default megatech theme.)
    
    ```markdown
    git clone https://github.com/forkymcforkface/RGBPi-Bookworm
