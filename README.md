@@ -42,13 +42,18 @@
    python3.9 -m pip install evdev==1.5.0
    python3.9 -m pip install pyalsaaudio==0.9.2
 
-7. **Install DHCPCD so that OS4 can connect to WiFi**
+7. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
-    sudo systemctl disable NetworkManager
-    sudo systemctl stop NetworkManager
-    sudo apt-get update
-    sudo apt-get install -y dhcpcd5
-    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
+    
+   sudo systemctl stop apparmor.service
+   sudo systemctl disable apparmor.service
+   sudo systemctl stop watchdog
+   sudo systemctl disable watchdog
+   sudo systemctl disable NetworkManager
+   sudo systemctl stop NetworkManager
+   sudo apt-get update
+   sudo apt-get install -y dhcpcd5
+   sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
 8. **Copy OS4 Files to bookworm**
     
