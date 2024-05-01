@@ -47,24 +47,18 @@
 7. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
-   sudo systemctl disable apparmor.service
-   sudo systemctl disable watchdog
-   sudo systemctl disable NetworkManager
-   sudo systemctl disable glamor-test.service
+   sudo systemctl disable apparmor.service glamor-test.service ModemManager.service rpi-eeprom-update.service rp1-test.service triggerhappy.service
    
    sudo apt-get update
    sudo apt-get install -y dhcpcd5
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
 8. **Copy OS4 Files to bookworm**
+
     
-    *   Copy `/opt` from OS4 image to `/opt` in bookworm. Replace RetroArch binary with the one you compiled.
-    *   Copy `.config/retroarch`.
-    *   Copy udev rules.
-    *   Copy any boot or shutdown services.
-    *   Copy `config.txt` to `boot/config.txt` even though it says don't write to that file (gets rid of RGBPi device warning).
-    *   Copy Python all files in /usr/lib/python3/dist-packages directly from OS4 image into /usr/lib/python3.9/site-packages. Installing the same versions manually does not work for some reason and video wont init
-    *   Run `pip list` to confirm they are installed.
+   ```markdown
+   sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service
+
 
 
 Known problems
