@@ -13,17 +13,22 @@
    make
    make install
 
-4. **Compile RetroArch** (or use precompiled one that will be applied in step 8)
+3. **Compile RetroArch** (skip this step to use precompiled one step 7)
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
    - Go to the bottom and modify 64bit compile without FFMPEG.
 
-5. **Run RetroPie installer and install SDL1 and SDL2 package**
+4. **Run RetroPie installer and install SDL1 and SDL2 package**
     ```markdown 
     git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
     cd RetroPie-Setup
     sudo ./retropie_setup.sh
+   ```
+    - Press Manage Packages
+    - Press Depends
+    - Install SDL1
+    - Install SDL2
 
-6. **Compile and altinstall Python 3.9.2**
+5. **Compile and altinstall Python 3.9.2**
    ```markdown
    sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget   vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev
 
@@ -44,7 +49,7 @@
    python3.9 -m pip install FBpyGIF==1.0.5
    python3.9 -m pip install setproctitle==1.2.3
 
-7. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
+6. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
    sudo systemctl disable apparmor.service glamor-test.service ModemManager.service rpi-eeprom-update.service rp1-test.service triggerhappy.service
@@ -53,7 +58,7 @@
    sudo apt-get install -y dhcpcd5
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
-8. **Copy OS4 Files to bookworm** (To keep size down this does not include scaper images, and only the default megatech theme.)
+7. **Copy OS4 Files to bookworm** (To keep size down this does not include scaper images, and only the default megatech theme.)
    
    ```markdown
    git clone https://github.com/forkymcforkface/RGBPi-Bookworm
@@ -61,7 +66,16 @@
    chmod +x Install-OS4.sh
    ./Install-OS4.sh
 
-Known problems
+**Optional**
+ - Install XONE for Xbox controller support
+   ```markdown 
+   sudo apt-get install -y dkms cabextract
+   git clone https://github.com/medusalix/xone
+   cd xone
+   sudo ./install.sh
+   sudo xone-get-firmware.sh
+   ```
+**Known problems**
 - wifi may not connect right away, may take a reboot after typing password in
 - ui is not 100% smooth, this does not affect retroarch
 - interlaced games do not work, Kernel needs to be patched
