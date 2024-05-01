@@ -54,10 +54,12 @@
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 
 8. **Copy OS4 Files to bookworm**
-
-    
+   
    ```markdown
-   sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service
+   git clone https://github.com/forkymcforkface/RGBPi-Bookworm
+   cd drive
+   chmod +x Install-OS4.sh
+   ./Install-OS4.sh
 
 
 
