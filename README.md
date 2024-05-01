@@ -34,7 +34,7 @@
    ./configure --enable-shared --prefix=/usr --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
    make -j5
    make altinstall
-   pip install --upgrade setuptools
+   pip3.9 install --upgrade setuptools
    python3.9 -m pip install paramiko==2.11.0
    python3.9 -m pip install Pillow==9.1.1
    python3.9 -m pip install smbus==1.1.post2
