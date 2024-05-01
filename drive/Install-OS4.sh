@@ -11,3 +11,4 @@ done
 
 sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service
 7z x /opt/retroarch/cores.7z
+reboot
