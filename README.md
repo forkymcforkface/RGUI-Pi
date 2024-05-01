@@ -17,36 +17,38 @@
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
    - Go to the bottom and modify 64bit compile without FFMPEG.
 
-5. **Compile and altinstall Python 3.9.2**
+5. **Run RetroPie installer and install SDL1 and SDL2 package**
+    ```markdown 
+    git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+    cd RetroPie-Setup
+    sudo ./retropie_setup.sh
+
+6. **Compile and altinstall Python 3.9.2**
    ```markdown
-   sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev
+   sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev
    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
    tar zxf Python-3.9.2.tgz
    cd Python-3.9.2/
-   ./configure --enable-shared --prefix=/usr --enable-ipv6 --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
+   ./configure --enable-shared --prefix=/usr --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
    make -j5
    make altinstall
+   pip install --upgrade setuptools
+   python3.9 -m pip install paramiko==2.11.0
    python3.9 -m pip install Pillow==9.1.1
    python3.9 -m pip install smbus==1.1.post2
    python3.9 -m pip install psutil==5.9.1
    python3.9 -m pip install evdev==1.5.0
    python3.9 -m pip install pyalsaaudio==0.9.2
 
-*   **Run RetroPie installer and install SDL2 package**
-    ```markdown 
-    git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
-    cd RetroPie-Setup
-    sudo ./retropie_setup.sh
-    
-*   **Install DHCPCD so that OS4 can connect to WiFi**
+7. **Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     sudo systemctl disable NetworkManager
     sudo systemctl stop NetworkManager
     sudo apt-get update
     sudo apt-get install -y dhcpcd5
     sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
-  
-*   **Copy OS4 Files to bookworm**
+
+8. **Copy OS4 Files to bookworm**
     
     *   Copy `/opt` from OS4 image to `/opt` in bookworm. Replace RetroArch binary with the one you compiled.
     *   Copy `.config/retroarch`.
