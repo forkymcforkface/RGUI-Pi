@@ -17,7 +17,7 @@
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
    - Go to the bottom and modify 64bit compile without FFMPEG.
 
-5. **Compile and altinstall Python 3.9.2** (or download precompiled one here and altinstall)
+5. **Compile and altinstall Python 3.9.2**
    ```markdown
    sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev
    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
