@@ -53,6 +53,8 @@
    sudo systemctl disable watchdog
    sudo systemctl disable NetworkManager
    sudo systemctl stop NetworkManager
+   sudo systemctl disable glamor-test.service
+   
    sudo apt-get update
    sudo apt-get install -y dhcpcd5
    sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
