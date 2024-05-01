@@ -13,7 +13,7 @@
    make
    make install
 
-4. **Compile RetroArch** (or download precompiled one here)
+4. **Compile RetroArch** (or use precompiled one that will be applied in step 8)
    - [GitHub Repository: forkymcforkface/RetroArch](https://github.com/forkymcforkface/RetroArch)
    - Go to the bottom and modify 64bit compile without FFMPEG.
 
