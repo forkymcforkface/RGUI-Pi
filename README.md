@@ -58,6 +58,7 @@
    ```markdown
    git clone https://github.com/forkymcforkface/RGBPi-Bookworm
    cd drive
+   chmod +x Install-OS4.sh
    ./Install-OS4.sh
 
 
