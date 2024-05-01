@@ -61,7 +61,7 @@
 7. **Copy OS4 Files to bookworm** (To keep size down this does not include scaper images, and only the default megatech theme.)
    
    ```markdown
-   git clone https://github.com/forkymcforkface/RGBPi-Bookworm
+   git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
    cd drive
    chmod +x Install-OS4.sh
    ./Install-OS4.sh
