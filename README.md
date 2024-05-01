@@ -1,6 +1,7 @@
 1. **Install 64bit bookworm lite onto SD card**
    - Enable SSH.
-   - Modify root pw and allow root SSH in sshd_config.
+   - Modify root pw if you would like with sudo passwd root
+   - sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    - reboot
 
 2. **Install DPIDAC for SCART cable driver**
