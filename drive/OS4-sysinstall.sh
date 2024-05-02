@@ -11,6 +11,11 @@ for dir in $source_dirs; do
     sudo cp -rp "$script_dir/$dir" /
 done
 
+# Check architecture and set arm_64bit to 0 if it's arm
+if [ "$(dpkg-architecture -qDEB_HOST_ARCH)" = "arm" ]; then
+    /path/to/set_arm_64bit.sh
+fi
+
 #just in case they somehow came back on :)
 sudo systemctl disable NetworkManager apparmor glamor-test ModemManager rpi-eeprom-update rp1-test triggerhappy NetworkManager-wait-online
 #enable rgbpi os boot and shutdown images
