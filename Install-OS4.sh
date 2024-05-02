@@ -29,7 +29,7 @@ cd RetroPie-Setup
 sudo ./retropie_setup.sh
 cd /root
 
-#Copy OS4 files to correct directories
+# Copy OS4 files to correct directories
 source_dirs="RGBPi-Bookworm/drive/boot RGBPi-Bookworm/drive/etc RGBPi-Bookworm/drive/media RGBPi-Bookworm/drive/opt RGBPi-Bookworm/drive/root RGBPi-Bookworm/drive/usr"
 script_dir=$(dirname "$(realpath "$0")")
 
@@ -40,6 +40,11 @@ for dir in $source_dirs; do
     fi
     sudo cp -rp "$script_dir/$dir" /
 done
+
+# Check architecture and set arm_64bit to 0 if it's arm
+if [ "$(dpkg-architecture -qDEB_HOST_ARCH)" = "arm" ]; then
+    /path/to/set_arm_64bit.sh
+fi
 
 #just in case they somehow came back on :)
 sudo systemctl disable NetworkManager apparmor glamor-test ModemManager rpi-eeprom-update rp1-test triggerhappy NetworkManager-wait-online
