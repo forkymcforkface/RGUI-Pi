@@ -12,6 +12,14 @@ for dir in $source_dirs; do
 done
 
 sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service
-7z x /opt/retroarch/cores.7z
 
-reboot
+7z x -aoa /opt/retroarch/cores.7z 
+rm /opt/retroarch/cores.7z
+rm -rf /root/RetroPie-Setup
+rm -rf /root/RGBPi-Bookworm
+rm -rf /root/RetroPie
+rm -rf /root/cores
+rm -rf /root/rpi-dpidac
+rm -rf /root/Python-3.9.2
+rm /root/Python-3.9.2.tgz
+sudo reboot
