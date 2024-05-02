@@ -1,6 +1,6 @@
 1. **Install 64bit or 32bit bookworm lite onto SD card**
    ```markdown
-   sudo apt-get update && sudo apt-get upgrade
+   sudo apt-get update
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    sudo reboot
