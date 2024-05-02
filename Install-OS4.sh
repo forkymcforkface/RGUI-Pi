@@ -16,7 +16,7 @@ cd Python-3.9.2
 make altinstall
 cd /root
 
-# Service cleanup and Install DHCPCD
+# Service cleanup and Install DHCPCD since OS4 does not work with NetworkManager
 sudo apt-get update
 sudo apt-get install -y dhcpcd5
 sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
