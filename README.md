@@ -63,8 +63,8 @@
    git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
    cd RGBPi-Bookworm
    cd drive
-   chmod +x Install-OS4.sh
-   ./Install-OS4.sh
+   chmod +x OS4-sysinstall.sh
+   ./OS4-sysinstall.sh
 
 **Optional**
  - Install XONE for Xbox controller support
