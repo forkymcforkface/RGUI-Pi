@@ -38,7 +38,7 @@
    cd Python-3.9.2/
    ./configure --enable-shared --prefix=/usr --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
    make -j5
-
+   make altinstall
 6. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
