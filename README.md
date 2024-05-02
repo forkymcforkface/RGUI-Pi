@@ -5,13 +5,7 @@
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    sudo systemctl restart ssh
    logout
-   ```
-  - If you are on 32bit you must add  arm_64bit=0 to /boot/firmware/config.txt
-      ```markdown
-      sudo echo 'arm_64bit=0' | sudo tee -a /boot/firmware/config.txt
-      ```
-  - Reboot
-   
+   ```   
 3. **Two Install Paths**
    - After reboot login as root and you now have two options
       - A. AutoInstall (mostly) You will need to follow step 5 and install sdl1 and sdl2
@@ -21,7 +15,7 @@
            chmod +x Install-OS4.sh
            ./Install-OS4.sh
            ```
-      - B. Manual Install follow all the steps below.
+    - B. Manual Install follow all the steps below.
 
 4. **Install DPIDAC for SCART cable driver**
    ```markdown
