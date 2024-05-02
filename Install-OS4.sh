@@ -15,6 +15,7 @@ sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev 
 wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
 tar zxf Python-3.9.2.tgz
 cd Python-3.9.2/
+EXPORT SETUPTOOLS_USE_DISTUTILS=stdlib
 ./configure --enable-shared --prefix=/usr --with-ensurepip
 make -j5
 make altinstall
