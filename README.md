@@ -2,6 +2,7 @@
    - Plug into Pi5
    - Get IP address
    - SSH Login as Pi user
+     
    ```markdown
    sudo apt-get update
    sudo passwd root
