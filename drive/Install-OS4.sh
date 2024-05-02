@@ -13,7 +13,7 @@ done
 
 sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service
 
-7z x -aoa /opt/retroarch/cores.7z 
+7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
 rm /opt/retroarch/cores.7z
 rm -rf /root/RetroPie-Setup
 rm -rf /root/RGBPi-Bookworm
