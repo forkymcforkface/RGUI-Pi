@@ -1,4 +1,7 @@
 1. **Install 64bit bookworm lite onto SD card**
+   - Plug into Pi5
+   - Get IP address
+   - SSH Login as Pi user
    ```markdown
    sudo apt-get update
    sudo passwd root
