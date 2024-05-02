@@ -5,8 +5,12 @@
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    sudo systemctl restart ssh
    logout
-
-2. **Two Install Options**
+   ```
+   If you are on 32bit you must add  arm_64bit=0 to /boot/firmware/config.txt
+   sudo sed -i '/^arm_64bit=/s/.*/arm_64bit=0/' /boot/firmware/config.txt || echo 'arm_64bit=0' >> /boot/firmware/config.txt
+   Reboot
+   
+3. **Two Install Options**
    - After reboot login as root and you now have two options
       - AutoInstall (mostly) You will need to follow step 5 and install sdl1 and sdl2
       - ```markdown
