@@ -15,7 +15,7 @@ sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev 
 tar zxf Python-3.9.2.tgz
 cd Python-3.9.2
 make altinstall
-cd /root
+cd /root/RGBPi-Bookworm
 
 # Service cleanup and Install DHCPCD since OS4 does not work with NetworkManager
 sudo apt-get update
