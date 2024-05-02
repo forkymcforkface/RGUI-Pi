@@ -1,5 +1,6 @@
-1. **Install 64bit bookworm lite onto SD card**
+1. **Install 64bit or 32bit bookworm lite onto SD card**
    ```markdown
+   sudo apt-get update && sudo apt-get upgrade
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    sudo reboot
@@ -8,6 +9,7 @@
    - After reboot login as root and you now have two options
       - AutoInstall (mostly) You will need to follow step 5 and install sdl1 and sdl2
       - ```markdown
+        apt install git -y
         git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
         chmod +x Install-OS4.sh
         ./Install-OS4.sh
