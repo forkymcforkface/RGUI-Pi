@@ -3,7 +3,8 @@
    sudo apt-get update
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
-   sudo reboot
+   sudo systemctl restart ssh
+   logout
 
 2. **Two Install Options**
    - After reboot login as root and you now have two options
