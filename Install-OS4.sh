@@ -15,7 +15,7 @@ sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev 
 tar zxf Python-3.9.2.tgz
 cd Python-3.9.2
 make altinstall
-cd /root/RGBPi-Bookworm
+cd /root
 
 # Service cleanup and Install DHCPCD since OS4 does not work with NetworkManager
 sudo apt-get update
@@ -28,7 +28,7 @@ sudo systemctl disable NetworkManager apparmor glamor-test ModemManager rpi-eepr
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 cd RetroPie-Setup
 sudo ./retropie_setup.sh
-cd /root
+cd /root/RGBPi-Bookworm
 
 # Copy OS4 files to correct directories
 source_dirs="drive/boot drive/etc drive/media drive/opt drive/root drive/usr"
