@@ -42,7 +42,7 @@
 6. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
-   sudo systemctl disable apparmor.service glamor-test.service ModemManager.service rpi-eeprom-update.service rp1-test.service triggerhappy.service NetworkManager-wait-online.service
+   sudo systemctl disable NetworkManager apparmor glamor-test ModemManager rpi-eeprom-update rp1-test triggerhappy NetworkManager-wait-online
    
    sudo apt-get update
    sudo apt-get install -y dhcpcd5
