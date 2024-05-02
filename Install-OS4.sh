@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Install DPIDAC for SCART cable driver
+apt-get update
 apt install git -y
 apt install raspberrypi-kernel-headers -y
 git clone https://github.com/forkymcforkface/rpi-dpidac
