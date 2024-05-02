@@ -1,4 +1,4 @@
-1. **Install 64bit or 32bit bookworm lite onto SD card**
+1. **Install 64bit bookworm lite onto SD card**
    ```markdown
    sudo apt-get update
    sudo passwd root
