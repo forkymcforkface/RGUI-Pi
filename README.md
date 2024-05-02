@@ -38,11 +38,11 @@
    cd Python-3.9.2/
    ./configure --enable-shared --prefix=/usr --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
    make -j5
-
+   make altinstall
 6. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
-   sudo systemctl disable apparmor.service glamor-test.service ModemManager.service rpi-eeprom-update.service rp1-test.service triggerhappy.service NetworkManager-wait-online.service
+   sudo systemctl disable NetworkManager apparmor glamor-test ModemManager rpi-eeprom-update rp1-test triggerhappy NetworkManager-wait-online
    
    sudo apt-get update
    sudo apt-get install -y dhcpcd5
