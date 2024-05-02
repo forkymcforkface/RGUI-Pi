@@ -6,7 +6,7 @@
    ```
   - If you are on 32bit you must add  arm_64bit=0 to /boot/firmware/config.txt
       ```markdown
-      sudo sed -i '/^arm_64bit=/s/.*/arm_64bit=0/' /boot/firmware/config.txt || echo 'arm_64bit=0' >> /boot/firmware/config.txt
+      sudo echo 'arm_64bit=0' | sudo tee -a /boot/firmware/config.txt
       ```
   - Reboot
    
