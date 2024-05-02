@@ -11,9 +11,9 @@ for dir in $source_dirs; do
     sudo cp -rp "$script_dir/$dir" /
 done
 
-# Check architecture and set arm_64bit to 0 if it's arm
+# Set arm_64bit to 0 if it's arm architecture
 if [ "$(dpkg-architecture -qDEB_HOST_ARCH)" = "arm" ]; then
-    /path/to/set_arm_64bit.sh
+    sed -i '/^arm_64bit=/s/.*/arm_64bit=0/' /boot/firmware/config.txt || echo 'arm_64bit=0' >> /boot/firmware/config.txt
 fi
 
 #just in case they somehow came back on :)
