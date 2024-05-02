@@ -3,6 +3,8 @@
    sudo apt-get update
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
+   sudo systemctl restart ssh
+   logout
    ```
   - If you are on 32bit you must add  arm_64bit=0 to /boot/firmware/config.txt
       ```markdown
