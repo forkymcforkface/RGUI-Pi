@@ -12,6 +12,7 @@
       -    ```markdown
            apt install git -y
            git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
+           cd RGBPi-Bookworm
            chmod +x Install-OS4.sh
            ./Install-OS4.sh
            ```
