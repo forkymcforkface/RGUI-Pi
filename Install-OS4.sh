@@ -30,7 +30,7 @@ sudo ./retropie_setup.sh
 cd /root
 
 # Copy OS4 files to correct directories
-source_dirs="RGBPi-Bookworm/drive/boot RGBPi-Bookworm/drive/etc RGBPi-Bookworm/drive/media RGBPi-Bookworm/drive/opt RGBPi-Bookworm/drive/root RGBPi-Bookworm/drive/usr"
+source_dirs="drive/boot drive/etc drive/media drive/opt drive/root drive/usr"
 script_dir=$(dirname "$(realpath "$0")")
 
 for dir in $source_dirs; do
