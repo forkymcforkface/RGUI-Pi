@@ -54,14 +54,12 @@
    
    6. **Run RetroPie installer and install SDL1 and SDL2 package**
        ```markdown 
-       git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
-       cd RetroPie-Setup
-       sudo ./retropie_setup.sh
+      git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
+      cd RetroPie-Setup
+      sudo usermod -a -G video $(whoami) && sudo usermod -a -G input $(whoami)
+      sudo ./retropie_packages.sh sdl1
+      sudo ./retropie_packages.sh sdl2
       ```
-       - Press Manage Packages
-       - Press Depends
-       - Install SDL1
-       - Install SDL2
    
    7. **Compile and altinstall Python 3.9.2**
       ```markdown
