@@ -1,7 +1,27 @@
 #!/bin/bash
 
+# Check if kernel=kernel8.img exists in /boot/firmware/config.txt
+if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
+    # kernel=kernel8.img doesn't exist, so this is the initial run
+    echo "Adding kernel=kernel8.img to /boot/firmware/config.txt..."
+    echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
+
+    # Prompt the user to confirm reboot
+    read -p "Kernel configuration updated. Press 'y' to reboot now: " confirm_reboot
+    if [ "$confirm_reboot" != "y" ]; then
+        echo "Please re-run this script after reboot to continue the installation."
+        sleep 5
+        exit 0
+    fi
+
+    # Reboot the system
+    echo "Rebooting the system..."
+    sudo reboot
+    exit 0
+fi
+
 # Install DPIDAC for SCART cable driver
-apt-get update
+apt-get update && apt-upgrade
 apt install git -y
 apt install raspberrypi-kernel-headers -y
 git clone https://github.com/forkymcforkface/rpi-dpidac
