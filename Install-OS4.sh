@@ -54,6 +54,8 @@ sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update tr
 # Run RetroPie installer and install SDL1 and SDL2 package
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 cd RetroPie-Setup
+sudo usermod -a -G video $(whoami)
+sudo usermod -a -G input $(whoami)
 sudo ./retropie_packages.sh sdl1
 sudo ./retropie_packages.sh sdl2
 cd /root/RGBPi-Bookworm
