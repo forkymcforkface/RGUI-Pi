@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Kernel8.img is required for Dreamcast and N64 to run
 # Check if kernel=kernel8.img exists in /boot/firmware/config.txt
 if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     # kernel=kernel8.img doesn't exist, so this is the initial run
