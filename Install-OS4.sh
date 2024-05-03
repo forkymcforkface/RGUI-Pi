@@ -37,8 +37,8 @@ wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
 tar zxf Python-3.9.2.tgz
 cd Python-3.9.2/
 ./configure --enable-shared --prefix=/usr --with-ensurepip
-make -j5
-make altinstall
+sudo make -j5
+sudo make altinstall
 cd /root/RGBPi-Bookworm
 
 # Service cleanup and Install DHCPCD since OS4 does not work with NetworkManager
@@ -51,7 +51,8 @@ sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update rp
 # Run RetroPie installer and install SDL1 and SDL2 package
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
 cd RetroPie-Setup
-sudo ./retropie_setup.sh
+sudo ./retropie_packages.sh sdl1
+sudo ./retropie_packages.sh sdl2
 cd /root/RGBPi-Bookworm
 
 # Copy OS4 files to correct directories
