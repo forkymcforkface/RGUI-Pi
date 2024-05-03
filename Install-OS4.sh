@@ -2,22 +2,22 @@
 
 # Kernel8.img is required for Dreamcast and N64 to run
 # Check if kernel=kernel8.img exists in /boot/firmware/config.txt
-apt-get update && apt-upgrade
+
 if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     # kernel=kernel8.img doesn't exist, so this is the initial run
     echo "Adding kernel=kernel8.img to /boot/firmware/config.txt..."
     echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
-
+    apt-get update && apt-upgrade
     # Prompt the user to confirm reboot
     read -p "Kernel configuration updated. Press 'y' to reboot now: " confirm_reboot
     if [ "$confirm_reboot" != "y" ]; then
-        echo "Please re-run this script after reboot to continue the installation."
+        echo "Please re-boot"
         sleep 5
         exit 0
     fi
 
     # Reboot the system
-    echo "Rebooting the system..."
+    echo "Please re-run this script after reboot to continue the installation."
     sudo reboot
     exit 0
 fi
