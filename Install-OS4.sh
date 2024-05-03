@@ -47,7 +47,7 @@ sudo apt-get update
 sudo apt-get install -y dhcpcd5
 sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 sudo systemctl enable dhcpcd
-sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update rp1-test triggerhappy NetworkManager-wait-online
+sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
 
 # Run RetroPie installer and install SDL1 and SDL2 package
 git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
