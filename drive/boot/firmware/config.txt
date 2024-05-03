@@ -47,6 +47,7 @@ disable_splash=1
 avoid_warnings=2
 avoid_safe_mode=1
 audio_pwm_mode=2
+kernel=kernel8.img
 
 initial_turbo=20
 #arm_freq=2700
@@ -60,4 +61,4 @@ gpio=2-3=a2
 dtparam=i2c_arm=on
 gpio=0-1=a2
 enable_uart=1
-dtoverlay=vc4-kms-dpi-custom
+
