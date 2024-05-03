@@ -7,7 +7,6 @@ if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     # kernel=kernel8.img doesn't exist, so this is the initial run
     echo "Adding kernel=kernel8.img to /boot/firmware/config.txt..."
     echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
-    apt-get update && apt-upgrade
     # Prompt the user to confirm reboot
     read -p "Kernel configuration updated. Press 'y' to reboot now: " confirm_reboot
     if [ "$confirm_reboot" != "y" ]; then
@@ -22,8 +21,27 @@ if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     exit 0
 fi
 
-# Install DPIDAC for SCART cable driver
+if [ -f "/root/.upgraderun" ]; then
+    echo "apt-get upgrade has already been performed. Skipping..."
+else
+    # Perform the upgrade
+    echo "Performing system upgrade..."
+    apt-get update && apt-get -y upgrade
 
+    # Create the flag file to indicate that the upgrade has been performed
+    touch /root/.upgraderun
+
+    # Prompt user to press any key to reboot
+    read -n 1 -s -r -p "Press any key to reboot. Please re-run this script after reboot to continue the installation. This is the last reboot"
+
+    # Reboot the system
+    echo "Rebooting the system..."
+    reboot
+fi
+
+# Install DPIDAC for SCART cable driver
+apt-get update 
+apt-upgrade
 apt install git -y
 apt install raspberrypi-kernel-headers -y
 git clone https://github.com/forkymcforkface/rpi-dpidac
@@ -79,11 +97,6 @@ sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.serv
 rm /opt/retroarch/cores.7z
 rm -rf /opt/pigpio
 rm -rf /opt/retropie
-rm -rf /root/RetroPie-Setup
 rm -rf /root/RGBPi-Bookworm
 rm -rf /root/RetroPie
-rm -rf /root/cores
-rm -rf /root/rpi-dpidac
-rm -rf /root/Python-3.9.2
-rm /root/Python-3.9.2.tgz
 sudo reboot
