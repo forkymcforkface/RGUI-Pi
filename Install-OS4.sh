@@ -4,25 +4,22 @@
 if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     echo "Adding kernel=kernel8.img to /boot/firmware/config.txt..."
     echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
-    read -p "Kernel configuration updated. Press 'y' to reboot now: " confirm_reboot
-    if [ "$confirm_reboot" != "y" ]; then
-        echo "Please re-boot"
-        sleep 5
-        exit 0
+    read -n 1 -s -r -p "Press any key to reboot, re-run this script after reboot to continue the installation. Reboot 1 of 2"
     fi
-    echo "Please re-run this script after reboot to continue the installation."
+    echo "re-run Install-OS4.sh after reboot to continue the installation."
     sudo reboot
-    exit 0
+else
+    echo "kernel=kernel8.img is already present in /boot/firmware/config.txt. Continuing installation..."
 fi
 
 if [ -f "/root/.upgraderun" ]; then
-    echo "apt-get upgrade has already been performed. Skipping..."
+    echo "apt-get upgrade has already been performed. Continuing installation..."
 else
     echo "Performing system upgrade..."
     apt-get update && apt-get -y upgrade
     touch /root/.upgraderun
-    read -n 1 -s -r -p "Press any key to reboot. Please re-run this script after reboot to continue the installation. This is the last reboot"
-    echo "Rebooting the system..."
+    read -n 1 -s -r -p "Press any key to reboot. re-run this script after reboot to continue the installation. This is the last reboot"
+    echo "re-run Install-OS4.sh after reboot to continue the installation."
     reboot
 fi
 
