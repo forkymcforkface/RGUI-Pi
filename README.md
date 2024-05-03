@@ -56,11 +56,9 @@
 
    
    wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
-   tar zxf Python-3.9.2.tgz
-   cd Python-3.9.2/
+   tar zxf Python-3.9.2.tgz && cd Python-3.9.2/
    ./configure --enable-shared --prefix=/usr --enable-loadable-sqlite-extensions --with-dbmliborder=bdb:gdbm --with-computed-gotos --with-ensurepip --with-system-expat --with-dtrace --with-system-libmpdec --with-system-ffi
-   make -j5
-   make altinstall
+   make -j5 && make altinstall
 8. **Do some service cleanup and Install DHCPCD so that OS4 can connect to WiFi**
     ```markdown
     
