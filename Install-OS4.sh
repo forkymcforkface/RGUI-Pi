@@ -2,6 +2,7 @@
 
 # Kernel8.img is required for Dreamcast and N64 to run
 # Check if kernel=kernel8.img exists in /boot/firmware/config.txt
+apt-get update && apt-upgrade
 if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
     # kernel=kernel8.img doesn't exist, so this is the initial run
     echo "Adding kernel=kernel8.img to /boot/firmware/config.txt..."
@@ -22,7 +23,7 @@ if ! grep -q '^kernel=kernel8.img' /boot/firmware/config.txt; then
 fi
 
 # Install DPIDAC for SCART cable driver
-apt-get update && apt-upgrade
+
 apt install git -y
 apt install raspberrypi-kernel-headers -y
 git clone https://github.com/forkymcforkface/rpi-dpidac
