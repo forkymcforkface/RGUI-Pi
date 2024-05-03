@@ -1,4 +1,26 @@
-1. **Install 64bit bookworm lite onto SD card**
+**I have create two different installers, one is an automated install and the other is for anyone that wants to go through the steps themselves.**
+
+
+**Mostly automated install**
+**Install 64bit bookworm lite onto SD card**
+   - Plug into Pi5
+   - Get IP address
+   - SSH Login as Pi user
+   ```markdown
+   sudo passwd root
+   sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
+   sudo systemctl restart ssh
+   logout
+   ```
+   - Login as root
+   ```markdown
+   apt install git -y && git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
+   cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
+   ```
+
+
+**Manual install**
+1. **Install 64bit bookworm lite onto SD card** you must reboot after step 1
    - On your computer open /boot/firmware/config.txt and add the below on the last line.
    ```markdown
    kernel=kernel8.img
@@ -11,17 +33,12 @@
    sudo apt-get update && apt-get upgrade
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
-   sudo systemctl restart ssh
-   logout
+   sudo reboot
    ```
    - Login as root
 3. **Installation Options** 
   
-   **Option A. AutoInstall** (mostly) You will need to follow step 5 and install sdl1 and sdl2
-      ```markdown
-      apt install git -y && git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
-      cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
-      ```
+
    **Option B. Manual Install follow all the steps below.**
 
 4. **Install DPIDAC for SCART cable driver**
