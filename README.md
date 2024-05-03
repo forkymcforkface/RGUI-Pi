@@ -8,7 +8,7 @@
    - SSH Login as Pi user
      
    ```markdown
-   sudo apt-get update && apt-upgrade
+   sudo apt-get update && apt-get upgrade
    sudo passwd root
    sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
    sudo systemctl restart ssh
@@ -20,8 +20,7 @@
    **Option A. AutoInstall** (mostly) You will need to follow step 5 and install sdl1 and sdl2
       ```markdown
       apt install git - && git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm
-      cd RGBPi-Bookworm && chmod +x Install-OS4.sh
-      ./Install-OS4.sh
+      cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
       ```
    **Option B. Manual Install follow all the steps below.**
 
