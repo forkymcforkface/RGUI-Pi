@@ -23,17 +23,6 @@ else
     reboot
 fi
 
-# Install DPIDAC for SCART cable driver
-apt-get update 
-apt-upgrade
-apt install git -y
-apt install raspberrypi-kernel-headers -y
-git clone https://github.com/forkymcforkface/rpi-dpidac
-cd rpi-dpidac
-make
-make install
-cd /root/RGBPi-Bookworm # I know there is a better way to do this. Lazy
-
 # Compile and altinstall Python 3.9.2
 sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev --allow-change-held-packages
 wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
