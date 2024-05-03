@@ -1,7 +1,7 @@
 **I have create two different installers, one is an automated install and the other is for anyone that wants to go through the steps themselves.**
 
 
-**Mostly automated install**
+**Option #1 Mostly automated install**
 **Install 64bit bookworm lite onto SD card**
    - Plug into Pi5
    - Get IP address
@@ -19,7 +19,7 @@
    ```
 
 
-**Manual install**
+**Option #2 Manual install**
 1. **Install 64bit bookworm lite onto SD card** you must reboot after step 1
    - On your computer open /boot/firmware/config.txt and add the below on the last line.
    ```markdown
