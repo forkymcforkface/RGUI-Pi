@@ -19,9 +19,10 @@ case $current_step in
     0)
         # Kernel8 is required for N64 and Dreamcast cores
         echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
+		echo "dtoverlay=vc4-kms-dpi-custom" | sudo tee -a /boot/firmware/config.txt > /dev/null
         script_dir="$(dirname "$(realpath "$0")")"
         echo "$script_dir/Install-OS4.sh" | sudo tee -a /etc/profile.d/10-rgbpi.sh > /dev/null
-        echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f root\" %I \$TERM" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
+        echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
         sudo apt-get update && sudo apt-get upgrade -y
         sudo echo 1 > "$flag_file"
         sync
@@ -31,6 +32,7 @@ case $current_step in
 
     1) 
         # Compile and Install DPIDAC for SCART cable driver
+		cd "$(dirname "$0")"
 		sudo apt-get install -y raspberrypi-kernel-headers
 		git clone https://github.com/forkymcforkface/rpi-dpidac
         cd rpi-dpidac || exit
@@ -44,8 +46,8 @@ case $current_step in
 		
     2)
 		# Install packages and download files
+		cd "$(dirname "$0")"
         sudo apt-get install -y git build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse
-        git clone https://github.com/forkymcforkface/rpi-dpidac
 		git clone https://github.com/medusalix/xone
         wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
 
@@ -96,6 +98,7 @@ case $current_step in
 
     3) 
         # Something breaks the DAC Driver and it needs to be installed again
+        cd "$(dirname "$0")"
         cd rpi-dpidac || exit
 		sudo make clean
 		sudo make
