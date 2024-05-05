@@ -1,6 +1,7 @@
 **I have created two different installers, one is an automated install and the other is for anyone that wants to go through the steps themselves.**
 --------------------------------------------------------------
 **Option #1 Automated install (there are a few reboots, fully automated and takes about 10mins to complete install)
+**Does not include scraper images or themes other than megatech. this is to keep down size and increase install speed.
 **Install 64bit bookworm lite onto SD card**
    - Plug into Pi5
    - Get IP address
