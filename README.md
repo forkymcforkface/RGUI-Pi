@@ -56,7 +56,7 @@
        ```markdown 
       git clone --depth=1 https://github.com/RetroPie/RetroPie-Setup.git
       cd RetroPie-Setup
-      sudo usermod -a -G video $(whoami) && sudo usermod -a -G input $(whoami)
+      sudo usermod -a -G video root && sudo usermod -a -G input root
       sudo ./retropie_packages.sh sdl1
       sudo ./retropie_packages.sh sdl2
       ```
