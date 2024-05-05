@@ -75,6 +75,7 @@ case $current_step in
         cd "$(dirname "$0")"
 
 		# Copy OS4 files to correct locations, enable services extract cores
+		cd drive
 		source_dirs="boot etc media opt root usr"
 		for dir in $source_dirs; do
 			echo "Copying $dir contents to /"
@@ -90,6 +91,8 @@ case $current_step in
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
+		echo "$script_dir/Install-OS4.sh" | sudo tee /etc/profile.d/10-rgbpi.sh > /dev/null
+		echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
 		sudo echo 3 > "$flag_file"
 		sync
 		sleep 3
@@ -106,8 +109,13 @@ case $current_step in
         cd ..
 
         # Cleanup
-		sudo apt autoremove
+		sudo apt autoremove -y
 		sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
+		echo '# launch our autostart apps (if we are on the correct tty and not in X)
+if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ "$USER" = "root" ]; then
+    bash "/opt/rgbpi/autostart.sh"
+fi' | sudo tee /etc/profile.d/10-rgbpi.sh > /dev/null
+		echo -e "[Service]\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f root\" %I \$TERM" | sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
         sudo rm /opt/retroarch/cores.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
