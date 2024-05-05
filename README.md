@@ -87,16 +87,18 @@
       cd drive
       chmod +x OS4-sysinstall.sh
       ./OS4-sysinstall.sh
+      ```
    
    **Optional**
-    - Install XONE for Xbox controller support
-      ```markdown 
-      sudo apt-get install -y dkms cabextract
-      git clone https://github.com/medusalix/xone
-      cd xone
-      sudo ./install.sh
-      sudo xone-get-firmware.sh
-      ```
+   -  Install XONE for Xbox controller support
+    
+         ```
+         sudo apt-get install -y dkms cabextract
+         git clone https://github.com/medusalix/xone
+         cd xone
+         sudo ./install.sh
+         sudo xone-get-firmware.sh
+         ```
    **Known problems**
    - wifi may not connect right away, may take a reboot after typing password in
    - ui is not 100% smooth, this does not affect retroarch
