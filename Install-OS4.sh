@@ -48,6 +48,7 @@ case $current_step in
 		# Install packages and download files
 		cd "$(dirname "$0")"
         sudo apt-get install -y git build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse
+		git clone https://github.com/medusalix/xone
         wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
 
         # Compile and Install Python3.9.2
@@ -72,6 +73,27 @@ case $current_step in
         ;;
 
     3) 
+		# Reinstall DAC driver since it gets blown away with something being installed
+        cd "$(dirname "$0")"
+        cd rpi-dpidac || exit
+		sudo make clean
+		sudo make
+        sudo make install
+		sudo echo 4 > "$flag_file"
+        sync
+		reboot
+		;;
+	
+	4)	
+		#Compile and Install XONE 
+		cd "$(dirname "$0")"
+		cd xone
+		chmod +x *
+		sudo ./install.sh
+		sudo xone-get-firmware.sh --skip-disclaimer
+		cd "$(dirname "$0")"
+		
+				
 		# Copy OS4 files to correct locations, enable services extract cores
 		cd "$(dirname "$0")"/drive
 		source_dirs="boot etc media opt root usr"
@@ -90,14 +112,6 @@ case $current_step in
 		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
 		
-		# Reinstall DAC driver since it gets blown away with something being installed
-        cd "$(dirname "$0")"
-        cd rpi-dpidac || exit
-		sudo make clean
-		sudo make
-        sudo make install
-        cd ..
-
         # Cleanup
 		sudo apt autoremove -y
 		sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online

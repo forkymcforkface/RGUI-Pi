@@ -136,3 +136,8 @@ SUBSYSTEM=="input", ATTRS{idVendor}=="2516", ATTRS{idProduct}=="0028", ENV{ID_IN
 SUBSYSTEM=="input", ATTRS{idVendor}=="2516", ATTRS{idProduct}=="0028", KERNEL=="js[0-9]*", RUN+="/bin/rm %E{DEVNAME}", ENV{ID_INPUT_JOYSTICK}=""
 SUBSYSTEM=="input", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", ENV{ID_INPUT_JOYSTICK}=="?*", ENV{ID_INPUT_JOYSTICK}=""
 SUBSYSTEM=="input", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="2009", KERNEL=="js[0-9]*", RUN+="/bin/rm %E{DEVNAME}", ENV{ID_INPUT_JOYSTICK}=""
+
+SUBSYSTEM=="input", ATTRS{name}=="Microsoft X-Box One pad", KERNEL=="event", MODE="0666", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+SUBSYSTEM=="input", ATTRS{name}=="Microsoft X-Box One pad", KERNEL=="event", MODE="0666", ENV{ID_INPUT_JOYSTICK}="1"
+SUBSYSTEM=="input", ATTRS{name}=="Xbox Wireless Controller", KERNEL=="event", MODE="0666", ENV{LIBINPUT_IGNORE_DEVICE}="1" 
+SUBSYSTEM=="input", ATTRS{name}=="Xbox Wireless Controller", KERNEL=="event", MODE="0666", ENV{ID_INPUT_JOYSTICK}="1"
