@@ -73,9 +73,17 @@ case $current_step in
         sudo ./retropie_packages.sh sdl1 install
         sudo ./retropie_packages.sh sdl2 install
         cd "$(dirname "$0")"
+		sudo echo 3 > "$flag_file"
+		sync
+		sleep 3
+        sudo reboot
+        ;;
 
-		# Copy OS4 files to correct locations, enable services extract cores
-		cd drive
+    3) 
+        # Something breaks the DAC Driver and it needs to be installed again
+		
+				# Copy OS4 files to correct locations, enable services extract cores
+		cd "$(dirname "$0")"/drive
 		source_dirs="boot etc media opt root usr"
 		for dir in $source_dirs; do
 			echo "Copying $dir contents to /"
@@ -91,16 +99,6 @@ case $current_step in
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
-		echo "$script_dir/Install-OS4.sh" | sudo tee /etc/profile.d/10-rgbpi.sh > /dev/null
-		echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
-		sudo echo 3 > "$flag_file"
-		sync
-		sleep 3
-        sudo reboot
-        ;;
-
-    3) 
-        # Something breaks the DAC Driver and it needs to be installed again
         cd "$(dirname "$0")"
         cd rpi-dpidac || exit
 		sudo make clean
@@ -115,7 +113,6 @@ case $current_step in
 if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ "$USER" = "root" ]; then
     bash "/opt/rgbpi/autostart.sh"
 fi' | sudo tee /etc/profile.d/10-rgbpi.sh > /dev/null
-		echo -e "[Service]\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f root\" %I \$TERM" | sudo tee /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
         sudo rm /opt/retroarch/cores.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
