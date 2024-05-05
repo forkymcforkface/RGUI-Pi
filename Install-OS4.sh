@@ -31,7 +31,7 @@ case $current_step in
         ;;
 
     1) 
-        # Compile and Install DPIDAC for SCART cable driver
+        # Compile and Install DPIDAC for SCART cable driver so install is visible on CRT
 		cd "$(dirname "$0")"
 		sudo apt-get install -y raspberrypi-kernel-headers
 		git clone https://github.com/forkymcforkface/rpi-dpidac
@@ -80,18 +80,17 @@ case $current_step in
         ;;
 
     3) 
-        # Something breaks the DAC Driver and it needs to be installed again
 		
-				# Copy OS4 files to correct locations, enable services extract cores
+		# Copy OS4 files to correct locations, enable services extract cores
 		cd "$(dirname "$0")"/drive
 		source_dirs="boot etc media opt root usr"
 		for dir in $source_dirs; do
 			echo "Copying $dir contents to /"
 			if [ "$dir" = "boot" ]; then
-				sudo cp -rp --no-preserve=ownership "$dir" /  # Copy boot directory without preserving ownership
+				sudo cp -rp --no-preserve=ownership "$dir" /  
 			else
-				sudo chmod -R 0777 "$dir"  # chmod other directories
-				sudo cp -rp "$dir" /  # Copy other directories with ownership preservation
+				sudo chmod -R 0777 "$dir" 
+				sudo cp -rp "$dir" / 
 			fi
 		done
 
@@ -99,6 +98,8 @@ case $current_step in
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
+		
+		# Reinstall DAC driver since it gets blown away with something being installed
         cd "$(dirname "$0")"
         cd rpi-dpidac || exit
 		sudo make clean
@@ -109,10 +110,6 @@ case $current_step in
         # Cleanup
 		sudo apt autoremove -y
 		sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
-		echo '# launch our autostart apps (if we are on the correct tty and not in X)
-if [ "`tty`" = "/dev/tty1" ] && [ -z "$DISPLAY" ] && [ "$USER" = "root" ]; then
-    bash "/opt/rgbpi/autostart.sh"
-fi' | sudo tee /etc/profile.d/10-rgbpi.sh > /dev/null
         sudo rm /opt/retroarch/cores.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
