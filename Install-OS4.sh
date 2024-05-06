@@ -19,7 +19,7 @@ case $current_step in
     0)
         # Kernel8 is required for N64 and Dreamcast cores
         echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
-		echo "dtoverlay=vc4-kms-dpi-custom" | sudo tee -a /boot/firmware/config.txt > /dev/null
+        echo "dtoverlay=vc4-kms-dpi-custom" | sudo tee -a /boot/firmware/config.txt > /dev/null
         script_dir="$(dirname "$(realpath "$0")")"
         echo "$script_dir/Install-OS4.sh" | sudo tee -a /etc/profile.d/10-rgbpi.sh > /dev/null
         echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
@@ -29,30 +29,28 @@ case $current_step in
         sleep 3
         sudo reboot
         ;;
-
     1) 
         # Compile and Install DPIDAC for SCART cable driver so install is visible on CRT
-		cd "$(dirname "$0")"
-		sudo apt-get install -y raspberrypi-kernel-headers
-		git clone https://github.com/forkymcforkface/rpi-dpidac
+        cd "$(dirname "$0")"
+        sudo apt-get install -y raspberrypi-kernel-headers
+        git clone https://github.com/forkymcforkface/rpi-dpidac
         cd rpi-dpidac || exit
         sudo make
         sudo make install
-		sudo echo 2 > "$flag_file"
-		sync
-		sleep 3
+        sudo echo 2 > "$flag_file"
+        sync
+        sleep 3
         sudo reboot
-		;;
-		
+        ;;
     2)
-		# Install packages and download files
-		cd "$(dirname "$0")"
+        # Install packages and download files
+        cd "$(dirname "$0")"
         sudo apt-get install -y git build-essential tk-dev libasound2-plugin-equal libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse
-		git clone https://github.com/medusalix/xone
+        git clone https://github.com/medusalix/xone
         wget https://www.python.org/ftp/python/3.9.2/Python-3.9.2.tgz
 
         # Compile and Install Python3.9.2
-		tar zxf Python-3.9.2.tgz
+        tar zxf Python-3.9.2.tgz
         cd Python-3.9.2/ || exit
         ./configure --enable-shared --prefix=/usr --with-ensurepip
         sudo make -j5
@@ -61,71 +59,66 @@ case $current_step in
 
         # Install SDL1/SDL2
         cd SDL || exit
-		sudo usermod -a -G video root && sudo usermod -a -G input root
-		chmod +x *
+        sudo usermod -a -G video root && sudo usermod -a -G input root
+        chmod +x *
         sudo ./retropie_packages.sh sdl1 install
         sudo ./retropie_packages.sh sdl2 install
         cd "$(dirname "$0")"
-		sudo echo 3 > "$flag_file"
-		sync
-		sleep 3
+        sudo echo 3 > "$flag_file"
+        sync
+        sleep 3
         sudo reboot
         ;;
-
     3) 
-		# Reinstall DAC driver since it gets blown away with something being installed
+        # Reinstall DAC driver since it gets blown away with something being installed
         cd "$(dirname "$0")"
         cd rpi-dpidac || exit
-		sudo make clean
-		sudo make
+        sudo make clean
+        sudo make
         sudo make install
-		sudo echo 4 > "$flag_file"
+        sudo echo 4 > "$flag_file"
         sync
-		reboot
-		;;
-	
-	4)	
-		#Compile and Install XONE 
-		cd "$(dirname "$0")"
-		cd xone
-		chmod +x *
-		sudo ./install.sh
-		sudo xone-get-firmware.sh --skip-disclaimer
-		cd "$(dirname "$0")"
-		
-				
-		# Copy OS4 files to correct locations, enable services extract cores
-		cd "$(dirname "$0")"/drive
-		source_dirs="boot etc media opt root usr"
-		for dir in $source_dirs; do
-			echo "Moving $dir contents to /"
-			if [ "$dir" = "boot" ]; then
-				sudo mv -f "$dir" /  
-			else
-				sudo chmod -R 0777 "$dir" 
-				sudo mv -f "$dir" / 
-			fi
-		done
+        reboot
+        ;;
+    4) 
+        #Compile and Install XONE 
+        cd "$(dirname "$0")"
+        cd xone
+        chmod +x *
+        sudo ./install.sh
+        sudo xone-get-firmware.sh --skip-disclaimer
+        cd "$(dirname "$0")"
+                
+        # Copy OS4 files to correct locations, enable services extract cores
+        cd "$(dirname "$0")"/drive
+        source_dirs="boot etc media opt root usr"
+        for dir in $source_dirs; do
+            echo "Copying $dir contents to /"
+            if [ "$dir" = "boot" ]; then
+                sudo cp -rp --no-preserve=ownership "$dir" /  
+            else
+                sudo chmod -R 0777 "$dir" 
+                sudo cp -rp "$dir" / 
+            fi
+        done
 
         sudo systemctl enable unplug-image.service boot-image.service argon-pwr-off.service argon-btn-fan.service dhcpcd
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
-		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
+        sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
-		sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z 
-		
+        
         # Cleanup
-		sudo apt autoremove -y
-		sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
+        sudo apt autoremove -y
+        sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
         sudo rm /opt/retroarch/cores.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
-		cd ..
-		sudo rm -rf RGBPi-Bookworm
-		sudo rm -rf RetroPie
-		sleep 5
+        cd ..
+        sudo rm -rf RGBPi-Bookworm
+        sudo rm -rf RetroPie
+        sleep 5
         sudo reboot
         ;;
-
     *)
         echo "Invalid step: $current_step"
         ;;
