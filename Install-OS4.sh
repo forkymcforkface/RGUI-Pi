@@ -85,16 +85,16 @@ case $current_step in
         sudo xone-get-firmware.sh --skip-disclaimer
         cd "$(dirname "$0")"
                 
-        echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
+        # Copy OS4 files to correct locations, enable services extract cores
         cd "$(dirname "$0")"/drive
         source_dirs="boot etc media opt root usr"
         for dir in $source_dirs; do
-            echo "Moving $dir contents to /"
+            echo "Copying $dir contents to /"
             if [ "$dir" = "boot" ]; then
-                sudo mv -f "$dir" /  
+                sudo cp -rp --no-preserve=ownership "$dir" /  
             else
                 sudo chmod -R 0777 "$dir" 
-                sudo mv -f "$dir" / 
+                sudo cp -rp "$dir" / 
             fi
         done
 
