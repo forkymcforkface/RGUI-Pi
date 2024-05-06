@@ -1,7 +1,7 @@
 **I have created two different installers, one is an automated install and the other is for anyone that wants to go through the steps themselves.**
 --------------------------------------------------------------
 - **Option #1 Automated install (there are a few reboots, fully automated and takes about 10mins to complete install)
-- **Does not include scraper images or themes other than megatech. this is to keep down size and increase install speed.
+- **Does not include scraper images (900Mb) this is to keep down size and increase install speed.
 - **Dreamcast will not work correctly without the pi5 branch of RGBPi-Extra. Naomi games do not currently work. https://github.com/forkymcforkface/RGBPi-Extra/tree/Pi5
 - read known problems at the very bottom.
 
