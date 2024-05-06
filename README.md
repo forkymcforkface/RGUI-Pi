@@ -3,6 +3,7 @@
 - **Option #1 Automated install (there are a few reboots, fully automated and takes about 10mins to complete install)
 - **Does not include scraper images or themes other than megatech. this is to keep down size and increase install speed.
 - **Dreamcast will not work correctly without the pi5 branch of RGBPi-Extra. Naomi games do not currently work. https://github.com/forkymcforkface/RGBPi-Extra/tree/Pi5
+- read known problems at the very bottom.
 
 **Install 64bit bookworm lite onto SD card** https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit
    - Plug into Pi5
