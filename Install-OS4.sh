@@ -102,6 +102,7 @@ case $current_step in
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
         sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
+        sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z -o/opt/rgbpi/ui/themes
         
         echo "Cleaning up..."
         sudo apt autoremove -y
