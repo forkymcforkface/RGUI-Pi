@@ -98,12 +98,12 @@ case $current_step in
 		cd "$(dirname "$0")"/drive
 		source_dirs="boot etc media opt root usr"
 		for dir in $source_dirs; do
-			echo "Copying $dir contents to /"
+			echo "Moving $dir contents to /"
 			if [ "$dir" = "boot" ]; then
-				sudo cp -rp --no-preserve=ownership "$dir" /  
+				sudo mv -f "$dir" /  
 			else
 				sudo chmod -R 0777 "$dir" 
-				sudo cp -rp "$dir" / 
+				sudo mv -f "$dir" / 
 			fi
 		done
 
@@ -111,6 +111,7 @@ case $current_step in
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
 		sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
+		sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z 
 		
         # Cleanup
 		sudo apt autoremove -y
