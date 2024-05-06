@@ -12,7 +12,6 @@
    ```markdown
    sudo apt install git -y && git clone --depth 1 https://github.com/forkymcforkface/RGBPi-Bookworm && cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
    ```
-   If you need xbox controller support go the very bottom to install xone after automated install
 --------------------------------------------------------------
 **Option #2 Manual install**
    1. **Install 64bit bookworm lite onto SD card** you must reboot after step 1
