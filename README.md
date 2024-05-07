@@ -1,7 +1,8 @@
-**Install 64bit bookworm lite onto SD card** https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit
+**Install 64bit bookworm lite onto SD card** 
+   - https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit
    - Plug into Pi5
    - Get IP address
-   - SSH Login as Pi user
+   - SSH Login as pi user
    - Run the below command and sit back until the OS4 UI appears
    ```markdown
    sudo apt install git -y && git clone --depth=1 --branch=dev https://github.com/forkymcforkface/RGBPi-Bookworm.git && cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
