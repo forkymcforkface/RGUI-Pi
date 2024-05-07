@@ -45,7 +45,7 @@ case $current_step in
         echo "Step 2: Installing packages and downloading files..."
         cd "$(dirname "$0")"
         sudo apt-get install -y git build-essential tk-dev libasound2-plugin-equal bluez libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse
-        git clone https://github.com/medusalix/xone
+        git clone https://github.com/forkymcforkface/xone
         
         echo "Compiling and installing Python3.9.2..."
         tar zxf Python-3.9.2.tgz
@@ -62,6 +62,7 @@ case $current_step in
         sudo ./retropie_packages.sh sdl2 install
         cd "$(dirname "$0")"
         sudo echo 3 > "$flag_file"
+	sudo systemctl disable NetworkManager-wait-online
         sync
         sudo reboot
         ;;
@@ -70,8 +71,10 @@ case $current_step in
         cd "$(dirname "$0")"
         cd xone
         chmod +x *
-        sudo ./install.sh
-        sudo xone-get-firmware.sh --skip-disclaimer
+        sudo ./install.sh --release
+	cd install
+ 	chmod +x *
+        sudo firmware_offline.sh --skip-disclaimer
         cd "$(dirname "$0")"
                 
         echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
