@@ -86,23 +86,25 @@ case $current_step in
         cd "$(dirname "$0")"
                 
         echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
-        cd "$(dirname "$0")"/drive
-        source_dirs="boot etc media opt root usr"
-        for dir in $source_dirs; do
-            if [ "$dir" = "boot" ]; then
-                sudo cp -rp --no-preserve=ownership "$dir" / /
-            else
-                sudo chmod -R 0777 "$dir"
-                sudo cp -rp "$dir" /
-            fi
-        done
+		cd "$(dirname "$0")"/drive
+		source_dirs="boot etc media opt root usr"
+		for dir in $source_dirs; do
+			if [ "$dir" = "boot" ]; then
+				sudo cp -rp --no-preserve=ownership "$dir" /
+			else
+				sudo chmod -R 0777 "$dir"
+				sudo cp -rp "$dir" /
+			fi
+		done
 
         sudo systemctl enable unplug-image.service boot-image.service dhcpcd
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
         sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
-        sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z -o/opt/rgbpi/ui/themes
-        
+		for archive_file in /opt/rgbpi/ui/themes/*.7z; do
+			sudo 7z x -aoa "$archive_file" -o/opt/rgbpi/ui/themes/
+		done		
+		
         echo "Cleaning up..."
         sudo apt autoremove -y
         sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
