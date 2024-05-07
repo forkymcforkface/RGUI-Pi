@@ -100,6 +100,7 @@ case $current_step in
         echo "Cleaning up..."
         sudo apt autoremove -y
         sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
+	sudo hostnamectl set-hostname RGBPi-Extra
         sudo rm /opt/retroarch/cores.7z
 	sudo rm /opt/rgbpi/ui/themes/*.7z
         sudo rm -rf /opt/pigpio
