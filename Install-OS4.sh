@@ -66,7 +66,7 @@ case $current_step in
         sudo reboot
         ;;
     3) 
-        echo "Step 4: Compiling and installing XONE..."
+        echo "Step 3: Compiling and installing XONE..."
         cd "$(dirname "$0")"
         cd xone
         chmod +x *
