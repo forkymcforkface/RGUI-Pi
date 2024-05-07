@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# Check if script is running with sudo privileges
 if [ "$(id -u)" -ne 0 ]; then
     echo "This script must be run with sudo."
     exit 1
@@ -12,10 +11,8 @@ echo "For more information, visit: https://github.com/forkymcforkface"
 echo "System will reboot itself a few times during install"
 echo
 
-# Define flag file
 flag_file="$(dirname "$0")/os4_install_step"
 
-# Function to check if reboot is required
 check_reboot() {
     if [ -f "$flag_file" ]; then
         current_step=$(cat "$flag_file")
@@ -27,7 +24,6 @@ check_reboot() {
     fi
 }
 
-# Step 0: Adding configuration and updating system
 step_0() {
     echo "Step 0: Adding configuration and updating system..."
     {
@@ -44,7 +40,6 @@ step_0() {
     echo 1 > "$flag_file"
 }
 
-# Step 1: Compiling and installing DPIDAC driver
 step_1() {
     echo "Step 1: Compiling and installing DPIDAC driver..."
     cd "$(dirname "$0")"
@@ -56,7 +51,6 @@ step_1() {
     echo 2 > "$flag_file"
 }
 
-# Step 2: Installing packages and downloading files
 step_2() {
     echo "Step 2: Installing packages and downloading files..."
     cd "$(dirname "$0")"
@@ -79,7 +73,6 @@ step_2() {
     sudo systemctl disable NetworkManager-wait-online
 }
 
-# Step 3: Compiling and installing XONE
 step_3() {
     echo "Step 3: Compiling and installing XONE..."
     cd "$(dirname "$0")" || exit
@@ -120,7 +113,6 @@ step_3() {
     echo 4 > "$flag_file"
 }
 
-# Main function to execute steps
 main() {
     check_reboot
     case $current_step in
@@ -132,5 +124,4 @@ main() {
     esac
 }
 
-# Run main function
 main
