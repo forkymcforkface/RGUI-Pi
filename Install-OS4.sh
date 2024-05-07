@@ -98,6 +98,7 @@ case $current_step in
         sudo apt autoremove -y
         sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
         sudo rm /opt/retroarch/cores.7z
+	sudo rm /opt/rgbpi/ui/themes/*.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
         cd ..
