@@ -57,7 +57,7 @@ case $current_step in
         echo "Installing SDL1/SDL2..."
         cd SDL
         sudo usermod -a -G video root && sudo usermod -a -G input root
-        chmod +x *
+        sudo chmod +x *
         sudo ./retropie_packages.sh sdl1 install
         sudo ./retropie_packages.sh sdl2 install
         cd "$(dirname "$0")"
@@ -70,11 +70,11 @@ case $current_step in
         echo "Step 3: Compiling and installing XONE..."
         cd "$(dirname "$0")"
         cd xone
-        chmod +x *
+        sudo chmod +x *
         sudo ./install.sh --release
 	cd install
- 	chmod +x *
-        sudo firmware_offline.sh --skip-disclaimer
+ 	sudo chmod +x *
+        sudo ./firmware_offline.sh --skip-disclaimer
         cd "$(dirname "$0")"
                 
         echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
