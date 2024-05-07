@@ -24,7 +24,7 @@ case $current_step in
         script_dir="$(dirname "$(realpath "$0")")"
         sudo echo "$script_dir/Install-OS4.sh" | sudo tee -a /etc/profile.d/10-rgbpi.sh > /dev/null
         sudo echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
-        sudo apt-get update && sudo apt-get upgrade -y
+        sudo apt-get update
         sudo echo 1 > "$flag_file"
         sync
         sudo reboot
