@@ -9,7 +9,7 @@ dtparam=audio=on
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-vga666-argon,mode6
 dtoverlay=rpivid-v4l2
-dtoverlay=audremap,pins_18_19
+#dtoverlay=audremap,pins_18_19
 max_framebuffers=1
 # Uncomment to enable overclock
 #arm_freq=2000
@@ -19,13 +19,13 @@ max_framebuffers=1
 [pi400]
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-vga666,mode6
-dtoverlay=audremap,pins_18_19
+#dtoverlay=audremap,pins_18_19
 max_framebuffers=1
 
 [cm4]
 dtoverlay=vc4-kms-v3d
 dtoverlay=vc4-vga666,mode6
-dtoverlay=audremap,pins_18_19
+#dtoverlay=audremap,pins_18_19
 otg_mode=1
 max_framebuffers=1
 
