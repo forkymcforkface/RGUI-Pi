@@ -27,7 +27,6 @@ case $current_step in
         sudo apt-get update && sudo apt-get upgrade -y
         sudo echo 1 > "$flag_file"
         sync
-        echo "Rebooting..."
         sudo reboot
         ;;
     1) 
@@ -35,82 +34,78 @@ case $current_step in
         cd "$(dirname "$0")"
         sudo apt-get install -y raspberrypi-kernel-headers
         git clone https://github.com/forkymcforkface/rpi-dpidac
-        cd rpi-dpidac || { echo "Error: Unable to change directory to rpi-dpidac"; exit 1; }
-        sudo make || { echo "Error: Compilation failed for DPIDAC driver"; exit 1; }
-        sudo make install || { echo "Error: Installation failed for DPIDAC driver"; exit 1; }
+        cd rpi-dpidac
+        sudo make
+        sudo make install
         sudo echo 2 > "$flag_file"
         sync
-        echo "Rebooting..."
         sudo reboot
         ;;
     2)
         echo "Step 2: Installing packages and downloading files..."
         cd "$(dirname "$0")"
-        sudo apt-get install -y git build-essential tk-dev libasound2-plugin-equal libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse || { echo "Error: Package installation failed"; exit 1; }
-        git clone https://github.com/medusalix/xone || { echo "Error: Unable to clone xone repository"; exit 1; }
-
+        sudo apt-get install -y git build-essential tk-dev libasound2-plugin-equal libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev tar wget vim systemtap-sdt-dev libsdl1.2-dev libimagequant0 libtiff5-dev libreadline8 librhash0 librole-tiny-perl librsvg2-2 librsvg2-common librtmp-dev librtmp1 librubberband2 libsamplerate0 libsasl2-2 libsasl2-modules-db libsasl2-modules libsasl2-modules libsdl-image1.2-dev libsdl-image1.2 libsdl-mixer1.2 libsdl-ttf2.0-0 libsdl1.2-dev libsdl1.2debian libsdl2-2.0-0 libsdl2-dev libsdl2-image-2.0-0 libsdl2-image-dev libsdl2-mixer-2.0-0 libsdl2-mixer-dev libsdl2-net-2.0-0 libsdl2-net-dev libsdl2-ttf-2.0-0 libsdl2-ttf-dev dhcpcd5 dkms cabextract exfat-fuse
+        git clone https://github.com/medusalix/xone
+        
         echo "Compiling and installing Python3.9.2..."
         tar zxf Python-3.9.2.tgz
-        cd Python-3.9.2/ || { echo "Error: Unable to change directory to Python-3.9.2"; exit 1; }
+        cd Python-3.9.2/
         sudo export SETUPTOOLS_USE_DISTUTILS=stdlib
-        sudo make altinstall || { echo "Error: Compilation failed for Python3.9.2"; exit 1; }
+        sudo make altinstall
         cd "$(dirname "$0")"
 
         echo "Installing SDL1/SDL2..."
-        cd SDL || { echo "Error: Unable to change directory to SDL"; exit 1; }
+        cd SDL
         sudo usermod -a -G video root && sudo usermod -a -G input root
         chmod +x *
-        sudo ./retropie_packages.sh sdl1 install || { echo "Error: SDL1 installation failed"; exit 1; }
-        sudo ./retropie_packages.sh sdl2 install || { echo "Error: SDL2 installation failed"; exit 1; }
+        sudo ./retropie_packages.sh sdl1 install
+        sudo ./retropie_packages.sh sdl2 install
         cd "$(dirname "$0")"
         sudo echo 3 > "$flag_file"
         sync
-        echo "Rebooting..."
         sudo reboot
         ;;
     3) 
         echo "Step 3: Reinstalling DAC driver..."
         cd "$(dirname "$0")"
-        cd rpi-dpidac || { echo "Error: Unable to change directory to rpi-dpidac"; exit 1; }
-        sudo make clean || { echo "Error: Clean failed for DAC driver"; exit 1; }
-        sudo make || { echo "Error: Compilation failed for DAC driver"; exit 1; }
-        sudo make install || { echo "Error: Installation failed for DAC driver"; exit 1; }
+        cd rpi-dpidac
+        sudo make clean
+        sudo make
+        sudo make install
         sudo echo 4 > "$flag_file"
         sync
-        echo "Rebooting..."
         sudo reboot
         ;;
     4) 
         echo "Step 4: Compiling and installing XONE..."
         cd "$(dirname "$0")"
-        cd xone || { echo "Error: Unable to change directory to xone"; exit 1; }
+        cd xone
         chmod +x *
-        sudo ./install.sh || { echo "Error: Installation failed for XONE"; exit 1; }
-        sudo xone-get-firmware.sh --skip-disclaimer || { echo "Error: Unable to get firmware for XONE"; exit 1; }
+        sudo ./install.sh
+        sudo xone-get-firmware.sh --skip-disclaimer
         cd "$(dirname "$0")"
                 
         echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
-        cd "$(dirname "$0")"/drive || { echo "Error: Unable to change directory to drive"; exit 1; }
+        cd "$(dirname "$0")"/drive
         source_dirs="boot etc media opt root usr"
         for dir in $source_dirs; do
-            echo "Copying $dir contents to /"
             if [ "$dir" = "boot" ]; then
-                sudo cp -rp --no-preserve=ownership "$dir" / /  || { echo "Error: Unable to move $dir"; exit 1; }
+                sudo cp -rp --no-preserve=ownership "$dir" / /
             else
-                sudo chmod -R 0777 "$dir"  || { echo "Error: Unable to change permissions for $dir"; exit 1; }
-                sudo cp -rp "$dir" /  || { echo "Error: Unable to move $dir"; exit 1; }
+                sudo chmod -R 0777 "$dir"
+                sudo cp -rp "$dir" /
             fi
         done
 
-        sudo systemctl enable unplug-image.service boot-image.service dhcpcd || { echo "Error: Failed to enable services"; exit 1; }
-        sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant || { echo "Error: Failed to copy 10-wpa_supplicant"; exit 1; }
-        sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config' || { echo "Error: Failed to modify sshd_config"; exit 1; }
-        sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch || { echo "Error: Failed to extract cores"; exit 1; }
-        sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z -o/opt/rgbpi/ui/themes || { echo "Error: Failed to extract themes"; exit 1; }
+        sudo systemctl enable unplug-image.service boot-image.service dhcpcd
+        sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
+        sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
+        sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
+        sudo 7z x -aoa /opt/rgbpi/ui/themes/*.7z -o/opt/rgbpi/ui/themes
         
         echo "Cleaning up..."
         sudo apt autoremove -y
-        sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online || { echo "Error: Failed to disable services"; exit 1; }
+        sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
         sudo rm /opt/retroarch/cores.7z
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
@@ -119,10 +114,9 @@ case $current_step in
         sudo rm -rf RetroPie
         sudo echo 5 > "$flag_file"
         sync
-        echo "Rebooting..."
         sudo reboot
         ;;
     *)
-        echo "Invalid step: $current_step"
+        echo "Invalid step: $current_step" >&2
         ;;
 esac
