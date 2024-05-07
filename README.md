@@ -92,9 +92,8 @@
          sudo xone-get-firmware.sh
          ```
    **Known problems**
-   - currently no bluetooth.
+   - USB Audio dac required
    - wifi may not connect right away, may take a reboot after typing password in
-   - ui is not 100% smooth, this does not affect retroarch, working on a fix
    - Pi5 does not support interlacing
    - Kodi is not installed since interlacing isnt supported
 
