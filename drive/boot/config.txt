@@ -1,0 +1,50 @@
+# For more options and information see
+# http://rpf.io/configtxt
+# Some settings may impact device functionality. See link above for details
+
+# Enable audio (loads snd_bcm2835)
+dtparam=audio=on
+
+[pi4]
+dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-vga666-argon,mode6
+dtoverlay=rpivid-v4l2
+#dtoverlay=audremap,pins_18_19
+max_framebuffers=1
+# Uncomment to enable overclock
+#arm_freq=2000
+#gpu_freq=700
+#dvfs=3
+
+[pi400]
+dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-vga666,mode6
+#dtoverlay=audremap,pins_18_19
+max_framebuffers=1
+
+[cm4]
+dtoverlay=vc4-kms-v3d
+dtoverlay=vc4-vga666,mode6
+#dtoverlay=audremap,pins_18_19
+otg_mode=1
+max_framebuffers=1
+
+[all]
+hdmi_ignore_hotplug=1
+boot_delay=0
+disable_splash=1
+avoid_warnings=2
+avoid_safe_mode=1
+audio_pwm_mode=2
+arm_boost=1
+force_turbo=1
+force_eeprom_read=0
+
+[gpio10=0]
+dtparam=i2c_vc=on
+gpio=2-3=a2
+
+[gpio10=1]
+dtparam=i2c_arm=on
+gpio=0-1=a2
+enable_uart=1

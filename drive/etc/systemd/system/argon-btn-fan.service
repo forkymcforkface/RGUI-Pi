@@ -1,0 +1,17 @@
+[Unit]
+Description=Argon One fan and button
+After=multi-user.target
+DefaultDependencies=no
+
+[Service]
+Type=simple
+Restart=always
+RemainAfterExit=true
+ExecStart=/usr/bin/python3.9 /opt/rgbpi/ui/argononed.pyc
+StandardOutput=null
+StandardError=null
+LogLevelMax=emerg
+SyslogLevel=emerg
+
+[Install]
+WantedBy=multi-user.target

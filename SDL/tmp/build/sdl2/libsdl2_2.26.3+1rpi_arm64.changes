@@ -1,0 +1,34 @@
+Format: 1.8
+Date: Sat, 04 May 2024 21:49:19 -0700
+Source: libsdl2
+Binary: libsdl2-2.0-0 libsdl2-dbg libsdl2-dev
+Architecture: arm64
+Version: 2.26.3+1rpi
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+Changed-By: Jools Wills <buzz@exotica.org.uk>
+Description:
+ libsdl2-2.0-0 - Simple DirectMedia Layer
+ libsdl2-dbg - Simple DirectMedia Layer debug files
+ libsdl2-dev - Simple DirectMedia Layer development files
+Changes:
+ libsdl2 (2.26.3+1rpi) UNRELEASED; urgency=medium
+ .
+   * Updated SDL to version 2.26.1
+   * SDL 2.26.3 configured for the rpi5
+Checksums-Sha1:
+ ca4baccdf053c47cd4babe32d2e5ad14b80270c0 477104 libsdl2-2.0-0_2.26.3+1rpi_arm64.deb
+ c0e01a7dc1a40489e50984b8e3668eebab078d3e 59756 libsdl2-dbg_2.26.3+1rpi_arm64.deb
+ 87fa3d3392bb72628ff7a298bc8ebbbfc4bb3dd9 2896828 libsdl2-dev_2.26.3+1rpi_arm64.deb
+ 8ee004df7368b8f1a8881e71eec9dce1fb95a09a 10382 libsdl2_2.26.3+1rpi_arm64.buildinfo
+Checksums-Sha256:
+ 712dac5cb842896362e38d684b62ab5dcec98e52d47b9d76bb823d5387421e84 477104 libsdl2-2.0-0_2.26.3+1rpi_arm64.deb
+ 0ef90bd7c7a224273d7d11f592c30279d18cbd76c0466bd2fd4c23a246efd38d 59756 libsdl2-dbg_2.26.3+1rpi_arm64.deb
+ ce04023e1a3b3b35eb9ec94bf108b83e0ede93bbf78dc2451744c81c7ad43a4d 2896828 libsdl2-dev_2.26.3+1rpi_arm64.deb
+ 0f820b868a981ad296186b671b27fdd4e3aa80ae3f4e49106afeed613cbfbfbb 10382 libsdl2_2.26.3+1rpi_arm64.buildinfo
+Files:
+ 5a49d1e1d78e020cd106086cf9a0d3b6 477104 libs optional libsdl2-2.0-0_2.26.3+1rpi_arm64.deb
+ feb3af07b629de86361ae3243d81be7a 59756 debug extra libsdl2-dbg_2.26.3+1rpi_arm64.deb
+ ca3430af9bcc9cbb01ab578e0a5297f1 2896828 libdevel optional libsdl2-dev_2.26.3+1rpi_arm64.deb
+ 0b6ee2cd7e700141634a94d0c1796827 10382 libs optional libsdl2_2.26.3+1rpi_arm64.buildinfo

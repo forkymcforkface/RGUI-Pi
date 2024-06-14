@@ -1,0 +1,15 @@
+[Unit]
+Description=unplug image
+DefaultDependencies=no
+After=final.target
+
+[Service]
+ExecStart=/usr/bin/python3.9 /opt/rgbpi/ui/framebuffer_write.pyc -halt -img /opt/rgbpi/ui/images/unplug.bmp
+Type=oneshot
+StandardOutput=null
+StandardError=null
+LogLevelMax=emerg
+SyslogLevel=emerg
+
+[Install]
+WantedBy=shutdown.target umount.target

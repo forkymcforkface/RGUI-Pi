@@ -1,0 +1,39 @@
+Format: 1.8
+Date: Sat, 04 May 2024 21:47:53 -0700
+Source: libsdl1.2
+Binary: libsdl1.2-dev libsdl1.2debian libsdl1.2debian-dbgsym
+Architecture: source arm64
+Version: 1.2.15+dfsg2-9rpi
+Distribution: UNRELEASED
+Urgency: medium
+Maintainer: Debian SDL packages maintainers <pkg-sdl-maintainers@lists.alioth.debian.org>
+Changed-By: Jools Wills <buzz@exotica.org.uk>
+Description:
+ libsdl1.2-dev - Simple DirectMedia Layer development files
+ libsdl1.2debian - Simple DirectMedia Layer
+Changes:
+ libsdl1.2 (1.2.15+dfsg2-9rpi) UNRELEASED; urgency=medium
+ .
+   * Added rpi fixes and dispmanx support from
+     https://github.com/RetroPie/sdl1/compare/master...rpi
+Checksums-Sha1:
+ 3986fe86c964bb76d2fe5e35d1c8dcac56ec8e81 1416 libsdl1.2_1.2.15+dfsg2-9rpi.dsc
+ 56b4f464c0f788624dfe28a20b4aa41aaff8b99b 59188 libsdl1.2_1.2.15+dfsg2-9rpi.debian.tar.xz
+ d45531f5a5c303982e0513b9b1de90d3fb696390 705032 libsdl1.2-dev_1.2.15+dfsg2-9rpi_arm64.deb
+ 434f73e218a4252ffe108a7f1765361850c9445e 9800 libsdl1.2_1.2.15+dfsg2-9rpi_arm64.buildinfo
+ 640046486beb73f406a826ff26327cc65faba97a 18260 libsdl1.2debian-dbgsym_1.2.15+dfsg2-9rpi_arm64.deb
+ 5395b70ad65422bf868a65c9775ca5113577d0a2 163860 libsdl1.2debian_1.2.15+dfsg2-9rpi_arm64.deb
+Checksums-Sha256:
+ c0461acd9c7a0f33a4a236d6963d5b2f8b2f55d3ba7de7a4d7e2bd395358aa59 1416 libsdl1.2_1.2.15+dfsg2-9rpi.dsc
+ 19d5ca5046865694492a62c8ae3e163180e608b23e83e206032ede55a0a13ec4 59188 libsdl1.2_1.2.15+dfsg2-9rpi.debian.tar.xz
+ 0de23e19bcbbe0f9ec177e6b2f87508823b635f534ac3e95742dd0b82233cfa0 705032 libsdl1.2-dev_1.2.15+dfsg2-9rpi_arm64.deb
+ c7b5a4931667af00f48f3dbd7c20f4435ceae02a7f102430fbaecf33c14e7e69 9800 libsdl1.2_1.2.15+dfsg2-9rpi_arm64.buildinfo
+ ac3bda5eaf7d225a208819322d4ac2c9ae8cb6d4b8ce65c32b70bf519fd43840 18260 libsdl1.2debian-dbgsym_1.2.15+dfsg2-9rpi_arm64.deb
+ c6c50dfb12cb0bf8a2cd88203ba265b36ba7f4c2a0ae5db5585352e2efd9cf67 163860 libsdl1.2debian_1.2.15+dfsg2-9rpi_arm64.deb
+Files:
+ 9ae28817ea4841024d03601d4f9f3a84 1416 libs optional libsdl1.2_1.2.15+dfsg2-9rpi.dsc
+ eca8a405780812439041d549409355a0 59188 libs optional libsdl1.2_1.2.15+dfsg2-9rpi.debian.tar.xz
+ 4e91d839a5183cdd8734c44693aa6442 705032 libdevel optional libsdl1.2-dev_1.2.15+dfsg2-9rpi_arm64.deb
+ 4781a39820245637da9625e8fbed7b04 9800 libs optional libsdl1.2_1.2.15+dfsg2-9rpi_arm64.buildinfo
+ 8ad228cba18e08da5c23f49f1de6b296 18260 debug optional libsdl1.2debian-dbgsym_1.2.15+dfsg2-9rpi_arm64.deb
+ 1afe36d06e85dfe9e6a62e74736457fa 163860 libs optional libsdl1.2debian_1.2.15+dfsg2-9rpi_arm64.deb

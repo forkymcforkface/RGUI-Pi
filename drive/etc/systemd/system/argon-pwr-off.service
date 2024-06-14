@@ -1,0 +1,16 @@
+[Unit]
+Description=Argon One poweroff
+DefaultDependencies=no
+Requires=shutdown.target umount.target final.target
+After=systemd-poweroff.service
+
+[Service]
+ExecStart=/bin/bash -c 'i2cset -y 1 0x01a 0xff'
+Type=oneshot
+StandardOutput=null
+StandardError=null
+LogLevelMax=emerg
+SyslogLevel=emerg
+
+[Install]
+WantedBy=systemd-poweroff.service systemd-halt.service
