@@ -24,8 +24,7 @@ Open Sources
 
 **Features (open source)**
 - Works with RGBPi, VGA666, Pi2Scart cable and should work with others as well.
-  - enable VGA666 in OS4 UI: before mounting an external drive, scan for new games, open ports folder, press 'VGA666 Mode')
-- Works with RGBPi Jamma/Plus
+ 
 
 **Known problems**
 - Must use a USB Dac that has the word headphone in the device name. I use this specific one (https://a.co/d/2eTi2mp) 
