@@ -1,4 +1,4 @@
-I built this image since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
+I built this script since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
 
 ------------------------
 Open Sources
