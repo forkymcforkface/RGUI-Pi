@@ -1,6 +1,13 @@
 I built this image since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
 
-
+------------------------
+Open Sources
+- Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
+- Python Version: 3.9.2
+- Custom RetroArch: https://github.com/rtomasa/RetroArch
+- GPIO Video driver: https://github.com/rtomasa/rpi-dpidac
+- Jamma Driver: https://github.com/rtomasa/JammaPi
+- Guncon Driver: https://github.com/rtomasa/guncon2
 ------------------------
 
 
