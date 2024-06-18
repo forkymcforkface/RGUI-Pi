@@ -11,7 +11,7 @@ Open Sources
 ------------------------
 
 
-*Self Install** (this has zero custom code and just the original OS4 file copied from the open source linux image provided)
+*Self Install**
    - https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit
    - Plug into Pi5
    - Get IP address
@@ -22,12 +22,9 @@ Open Sources
    ```
 --------------------
 
-**Features (open source)**
-- Works with RGBPi, VGA666, Pi2Scart cable and should work with others as well.
+**Features**
+- Works with RGBPi, VGA666, Pi2Scart cables and should work with others as well.
  
-
 **Known problems**
-- Must use a USB Dac that has the word headphone in the device name. I use this specific one (https://a.co/d/2eTi2mp) 
+- Must use a USB Dac. I use this specific one (https://a.co/d/2eTi2mp) 
 - Pi5 does not and will not support interlacing through GPIO.
-- OS4 Pi UI is half the fps as Pi4 UI, does not affect retroarch.
-- Bluetooth controllers do not work.
