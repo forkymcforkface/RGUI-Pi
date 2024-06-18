@@ -1,13 +1,13 @@
 #!/bin/bash
 
 clear
-echo "OS4 installation script!"
+echo "installation script!"
 echo "For more information, visit: https://github.com/forkymcforkface"
 echo "System will reboot itself a few times during install"
 echo
 
 # Define flag file
-flag_file="$(dirname "$0")/os4_install_step"
+flag_file="$(dirname "$0")/install_step"
 
 # Check current step from the flag file
 current_step=0
@@ -22,7 +22,7 @@ case $current_step in
         sudo echo "kernel=kernel8.img" | sudo tee -a /boot/firmware/config.txt > /dev/null
         sudo echo "dtoverlay=vc4-kms-dpi-custom" | sudo tee -a /boot/firmware/config.txt > /dev/null
         script_dir="$(dirname "$(realpath "$0")")"
-        sudo echo "$script_dir/Install-OS4.sh" | sudo tee -a /etc/profile.d/10-rgbpi.sh > /dev/null
+        sudo echo "$script_dir/Install-CRTRGUI.sh" | sudo tee -a /etc/profile.d/10-rgbpi.sh > /dev/null
         sudo echo -e "[Service]\nExecStart=\n#ExecStart=-/sbin/agetty --autologin root --noclear %I \$TERM\nExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options \"-f pi\" %I \$TERM" | sudo tee -a /etc/systemd/system/getty@tty1.service.d/autologin.conf > /dev/null
         sudo apt-get update
         sudo echo 1 > "$flag_file"
@@ -77,7 +77,7 @@ case $current_step in
         sudo ./firmware_offline.sh --skip-disclaimer
         cd "$(dirname "$0")"
                 
-        echo "Moving OS4 files to correct locations, enabling services, and extracting cores..."
+        echo "Moving files to correct locations, enabling services, and extracting cores..."
         cd "$(dirname "$0")"/drive
         source_dirs="boot etc media opt root usr"
         for dir in $source_dirs; do
@@ -89,24 +89,18 @@ case $current_step in
             fi
         done
 
-        sudo systemctl enable unplug-image.service boot-image.service dhcpcd
         sudo cp /usr/share/dhcpcd/hooks/10-wpa_supplicant /lib/dhcpcd/dhcpcd-hooks/10-wpa_supplicant
         sudo touch /etc/ssh/sshd_config && sudo bash -c 'echo "PermitRootLogin yes" >> /etc/ssh/sshd_config'
         sudo 7z x -aoa /opt/retroarch/cores.7z -o/opt/retroarch
-        sudo 7z x -aoa /opt/rgbpi/ui/data/scraper/images/images.7z.001 -o/opt/rgbpi/ui/data/scraper/images
-        for archive_file in /opt/rgbpi/ui/themes/*.7z; do
-            sudo 7z x -aoa "$archive_file" -o/opt/rgbpi/ui/themes/
         done
         
         echo "Cleaning up..."
         sudo apt autoremove -y
         sudo systemctl disable NetworkManager apparmor ModemManager rpi-eeprom-update triggerhappy NetworkManager-wait-online
         sudo rm /opt/retroarch/cores.7z
-        sudo rm /opt/rgbpi/ui/themes/*.7z
-        sudo rm /opt/rgbpi/ui/data/scraper/images/*.7z.*
         sudo rm -rf /opt/pigpio
         sudo rm -rf /opt/retropie
-        sudo rm -rf /home/pi/RGBPi-Bookworm
+        sudo rm -rf /home/pi/CRT-RGUI
         sudo rm -rf /home/pi/RetroPie
         sudo find / -name ".gitkeep" -type f -delete
         sudo echo 4 > "$flag_file"
