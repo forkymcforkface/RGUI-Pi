@@ -1,6 +1,13 @@
-I built this image since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
+I built this script since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
 
-
+------------------------
+Open Sources
+- Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
+- Python Version: 3.9.2
+- Custom RetroArch: https://github.com/rtomasa/RetroArch
+- GPIO Video driver: https://github.com/rtomasa/rpi-dpidac
+- Jamma Driver: https://github.com/rtomasa/JammaPi
+- Guncon Driver: https://github.com/rtomasa/guncon2
 ------------------------
 
 
@@ -17,8 +24,7 @@ I built this image since I had a Pi5 and I couldn't wait for ReplayOS. That bein
 
 **Features (open source)**
 - Works with RGBPi, VGA666, Pi2Scart cable and should work with others as well.
-  - enable VGA666 in OS4 UI: before mounting an external drive, scan for new games, open ports folder, press 'VGA666 Mode')
-- Works with RGBPi Jamma/Plus
+ 
 
 **Known problems**
 - Must use a USB Dac that has the word headphone in the device name. I use this specific one (https://a.co/d/2eTi2mp) 
