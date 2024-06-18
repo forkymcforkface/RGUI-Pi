@@ -1,4 +1,4 @@
-I built this script since I had a Pi5 and I couldn't wait for ReplayOS. That being said, ReplayOS is going to be much better than OS4. I hope my many hours of work makes your day better. Happy Gaming!  
+I built this script since I had a Pi5 and I couldn't wait for a proper dynamic resolution solution for the Pi5. CRT-RGUI is a bare bones CRT Compatible raspberry pi installer that works with basically any GPIO video output. It utilizes Ruben Tomas Dynares driver along with the below pieces.
 
 ------------------------
 Open Sources
