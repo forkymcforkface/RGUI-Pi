@@ -1,10 +1,19 @@
-I built this script since I had a Pi5 and I couldn't wait for a proper dynamic resolution solution for the Pi5. CRT-RGUI is a bare bones CRT Compatible raspberry pi installer that works with basically any GPIO video output. It utilizes Ruben Tomas Dynares driver along with the below pieces.
+RGUI-Pi is an advanced CRT only RGUI implementation using RTA Retroarch Dynares for pixel perfect gaming. It also has the ability to migrate OS4 from the Pi4 to the Pi5.
+
+------------------------
+**OS4 Migration**
+- RGUI-Pi image
+- The migration tool looks for a OS4 drive at boot and migrates the files once it finds it. If it does not, it will boot to RGUI. You can either migrate your existing SD card or burn a fresh copy of OS4 onto a usb drive.
+- If you are using the sd card you will have to use an sd to usb adatper.
+- Must use a USB Dac that has the device name 'Headphone' in alsamixer, if it does not, audio will not work in OS4 UI. I use this specific one (https://a.co/d/2eTi2mp) 
+- Kodi disabled (do not use)
+- Here is a video of the process https://youtu.be/CJom1TIRI6g 
 
 ------------------------
 Build Sources
 - Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
 - Python Version: 3.9.2
-- Custom RetroArch: https://github.com/rtomasa/RetroArch
+- RetroArch: https://github.com/rtomasa/RetroArch
 - GPIO Video driver: https://github.com/rtomasa/rpi-dpidac
 - Jamma Driver: https://github.com/rtomasa/JammaPi
 - Guncon Driver: https://github.com/rtomasa/guncon2
@@ -22,6 +31,4 @@ Build Sources
    ```
 --------------------
  
-**Known problems**
-- Must use a USB Dac that has the device name headphone in alsamixer, if it does not, audio will not work in OS4 UI. I use this specific one (https://a.co/d/2eTi2mp) 
-- Pi5 does not and will not support interlacing through GPIO.
+
