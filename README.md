@@ -3,7 +3,7 @@ RGUI-Pi is an advanced CRT only RGUI implementation using RTA Retroarch Dynares 
 ------------------------
 **OS4 Migration**
 - RGUI-Pi image https://mega.nz/folder/xqkh2Y6D#5S16aX_Ax2Lv6qtkpwGsdA
-- The migration tool looks for a OS4 drive at boot and migrates the files once it finds it. If it does not, it will boot to RGUI. You can either migrate your existing SD card or burn a fresh copy of OS4 onto a usb drive.
+- The migration tool looks for a second OS4 drive at boot and migrates the files to the Pi5 sd card once it finds it. If it does not, it will boot to RGUI. You can either migrate your existing SD card or burn a fresh copy of OS4 onto a usb drive.
 - If you are using the sd card you will have to use an sd to usb adatper
 - Here is a video of the process https://youtu.be/CJom1TIRI6g
 - Must use a USB Dac that has the device name 'Headphone' in alsamixer, if it does not, audio will not work in OS4 UI. I use this specific one (https://a.co/d/2eTi2mp) 
