@@ -1,4 +1,4 @@
-RGUI-Pi is an advanced CRT only RGUI implementation using RTA Retroarch Dynares for pixel perfect gaming. It also has the ability to migrate OS4 from the Pi4 to the Pi5.
+RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch Dynares for pixel perfect gaming. It also has the ability to migrate OS4 from the Pi4 to the Pi5.
 
 ------------------------
 **OS4 Migration**
