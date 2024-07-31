@@ -27,7 +27,7 @@ Build Sources
    - SSH Login as pi user
    - Run the below command and sit back until the OS4 UI appears
    ```markdown
-   sudo apt install git -y && git clone --depth=1 https://github.com/forkymcforkface/RGBPi-Bookworm.git && cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-OS4.sh
+   sudo apt install git -y && git clone --depth=1 https://github.com/forkymcforkface/RGBPi-Bookworm.git && cd RGBPi-Bookworm && chmod +x Install-OS4.sh && ./Install-RGUI.sh
    ```
 --------------------
  
