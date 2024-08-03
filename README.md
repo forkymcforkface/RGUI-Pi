@@ -2,11 +2,11 @@ RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch Dyna
 
 ------------------------
 **OS4 Migration**
-- RGUI-Pi image https://mega.nz/folder/xqkh2Y6D#5S16aX_Ax2Lv6qtkpwGsdA
-- The migration tool looks for a second OS4 drive at boot and migrates the files to the Pi5 sd card once it finds it. If it does not, it will boot to RGUI. You can either migrate your existing SD card or burn a fresh copy of OS4 onto a usb drive.
-- If you are using the sd card you will have to use an sd to usb adatper
+- Burn this RGUI-Pi image onto an SD card and insert into Pi5 https://mega.nz/folder/xqkh2Y6D#5S16aX_Ax2Lv6qtkpwGsdA
+- Burn OS4 onto a normal USB drive, or take your Pi4 SD card and insert it into the pi5 using an SD to USB adapter.
+- Turn on the Pi5 and wait for that migration to complete (about 2mins)
 - Here is a video of the process https://youtu.be/CJom1TIRI6g
-- Must use a USB Dac that has the device name 'Headphone' in alsamixer, if it does not, audio will not work in OS4 UI. I use this specific one (https://a.co/d/2eTi2mp) 
+- Must use this specific USB audio DAC, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones'(https://a.co/d/2eTi2mp) 
 - Kodi disabled (do not use)
 
 ------------------------
@@ -20,7 +20,7 @@ Build Sources
 ------------------------
 
 
-*Self Install**
+*Self Install** (Work in progress)
    - https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit
    - Plug into Pi5
    - Get IP address
