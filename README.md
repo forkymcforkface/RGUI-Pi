@@ -8,6 +8,7 @@ RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch Dyna
 - Here is a video of the process https://youtu.be/CJom1TIRI6g
 - Must use this specific USB audio DAC, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones'(https://a.co/d/2eTi2mp) 
 - Kodi disabled (do not use)
+- pi pw: rguipi
 
 ------------------------
 Build Sources
