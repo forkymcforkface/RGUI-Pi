@@ -1,7 +1,7 @@
 RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch Dynares for pixel perfect gaming. It also has the ability to migrate OS4 from the Pi4 to the Pi5.
 
 ------------------------
-**OS4 Migration**
+**How to Migrate OS4 to Pi5**
 - Burn this RGUI-Pi image onto an SD card and insert into Pi5 https://mega.nz/folder/xqkh2Y6D#5S16aX_Ax2Lv6qtkpwGsdA
 - Burn OS4 onto a normal USB drive, or take your Pi4 OS4 SD card and insert it into the pi5 using an SD to USB adapter.
 - Turn on the Pi5 and wait for that migration to complete (about 2mins)
