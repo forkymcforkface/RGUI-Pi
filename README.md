@@ -11,6 +11,7 @@ It also has the ability to migrate OS4 from the Pi4 to the Pi Zero2, Pi3 and Pi5
 - Kodi disabled (do not use)
 - pi pw: rguipi
 
+- The OS4 UI is half the frames, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
 ------------------------
 Build Sources
 - Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
