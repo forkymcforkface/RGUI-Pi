@@ -12,6 +12,7 @@ It also has the ability to migrate OS4 from the Pi4 to the Pi Zero2, Pi3 and Pi5
 - pi pw: rguipi
 
 - The OS4 UI is half the frames and feels slow, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
+- If using a pi3 or pi zero2 make sure to scan for games after the first os4 boot, go to ports and apply the pi3/zero2 timings patch.
 ------------------------
 Build Sources
 - Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
