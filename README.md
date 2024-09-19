@@ -15,6 +15,7 @@ It also has the ability to migrate OS4 from the original image to the Pi Zero2, 
 
 - The OS4 UI is half the frames and feels slow, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
 - If using a pi3 or pi zero2 make sure to scan for games after the first os4 boot, go to ports and apply the pi3/zero2 timings patch.
+- Overclock requies manual change of /boot/firmware/config.txt. the UI toggle does nothing. 
 ------------------------
 Build Sources
 - Debian Bookworm: https://www.raspberrypi.com/news/bookworm-the-new-version-of-raspberry-pi-os/
