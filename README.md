@@ -6,7 +6,7 @@
 - Burn OS4 onto a normal USB drive, or take your Pi4 OS4 SD card and insert it into the pi5 using an SD to USB adapter.
 - Turn on the Pi5 and wait for that migration to complete (about 2mins)
 - Here is a video of the process https://youtu.be/CJom1TIRI6g
-- Must use this specific USB audio DAC, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones'(https://a.co/d/2eTi2mp) 
+- Must use this specific USB audio DAC if you want audio in the UI, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones'(https://a.co/d/2eTi2mp) 
 
 - Interlacing is not possible with gpio on pi5
 - Kodi disabled (do not use)
