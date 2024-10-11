@@ -4,7 +4,7 @@
 ------------------------
 **How to Migrate OS4 to Pi5**
 - Download the [latest release](https://github.com/forkymcforkface/RGUI-Pi/releases) and burn to an SD card using your favorite utility.
-- Burn OS4 onto a normal USB drive, or take your Pi4 OS4 SD card and insert it into the pi5 using a SD to USB adapter.
+- Download and Burn [OS4](https://www.rgb-pi.com/#os) onto a normal USB drive, not a SD card.
 - Turn on the Pi5 and wait for that migration to complete (about 2mins)
 - Here is a [video of the process](https://youtu.be/CJom1TIRI6g) 
 - You Must use [this specific USB audio DAC](https://a.co/d/2eTi2mp) if you want audio in the OS4 UI, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones' 
