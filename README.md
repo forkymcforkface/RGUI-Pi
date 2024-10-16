@@ -7,14 +7,14 @@
 - Download [OS4](https://www.rgb-pi.com/#os) and burn to a normal USB drive (not sd card), insert into Pi5 USB port.
 - Turn on the Pi5 with both the SD card and the USB drive plugged in and wait for the migration to complete (about 2mins)
 - Here is a [video of the process](https://youtu.be/CJom1TIRI6g) 
-- For audio in OS4 UI, You Must use a USB DAC that shows up as 'Headphone' in aslamixer [this specific USB audio DAC](https://a.co/d/2eTi2mp) works for me. Some people have tried other DACs with some success. 
+- For audio in OS4 UI (games work with any DAC), You Must use a USB Audio DAC that shows up as 'Headphone' in aslamixer [this specific USB audio DAC](https://a.co/d/2eTi2mp) works for me. Some people have tried other DACs with some success. 
 
 ------------------------
 **How to change settings for different hats, cables**
-- After migrating OS4 scan for games with just the sd card. Open ports and there are options there to change to
- - Lo-tech 24bit vga888 (also supports retrotink ultimate)
- - VGA666 (does not display full 18bit colors)
- - RGB-Pi cable (full 18bit color)
+- After migrating OS4 scan for games before mounting a drive. Open ports and there are options there to change to
+  - Lo-tech 24bit vga888 (also supports retrotink ultimate)
+  - VGA666 (does not display full 18bit colors)
+  - RGB-Pi cable (full 18bit color)
 - You must run the pi zero2 Pi3 script if you are running on those systems.
 - USB Audio Dac required even for Pi Zero2, Pi3, Pi4. Can probably be fixed, but pi5 is the focus. 
 ------------------------
@@ -45,4 +45,4 @@ Build Sources
 - Kodi disabled (do not use)
 - The OS4 UI is half the frames and feels slow, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
 - If using a pi3 or pi zero2 make sure to scan for games after the first os4 boot, go to ports and apply the pi3/zero2 timings patch.
-- pi pw: rguipi
+- pi pw prior to OS4 migration: rguipi
