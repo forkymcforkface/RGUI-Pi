@@ -44,7 +44,7 @@ Build Sources
 --------------------
  
 **Things to Note**
-- Interlacing is not possible with gpio on pi5
+- Interlacing is not possible with gpio on pi5 so systems that utilize it are running at half height to keep it progressive resolution. similar to how the Pi3 OS2 runs. 
 - Kodi disabled (do not use)
 - System is overclocked out of the box for Pi4 and Pi5. Fan is required. Overclocking does not void the raspberry pi warranty. 
 - The OS4 UI is half the frames and feels slow, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
