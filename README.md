@@ -11,11 +11,11 @@
 
 ------------------------
 **How to change settings for different hats, cables**
-- After migrating OS4 scan for games before mounting a drive. Open ports and there are options available:
-   - Lo-tech 24bit vga888
-   - Retrotink Ultimate use vga888
-   -VGA666 (does not display full 18bit colors)
+- After migrating OS4, scan for games before mounting a drive. Open ports and there are options available:
+   - Lo-tech VGA888 (24bit color)
+   - Retrotink Ultimate (use VGA888)
    - RGB-Pi cable (full 18bit color)
+   - VGA666 (does not display full 18bit colors)
 - You must run the pi zero2 Pi3 script if you are running on those systems.
 - USB Audio Dac required even for Pi Zero2, Pi3, Pi4. Can probably be fixed, but pi5 is the focus. 
 ------------------------
