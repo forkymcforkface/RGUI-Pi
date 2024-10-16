@@ -9,7 +9,11 @@
 - Here is a [video of the process](https://youtu.be/CJom1TIRI6g) 
 - You Must use [this specific USB audio DAC](https://a.co/d/2eTi2mp) if you want audio in the OS4 UI, I can't guarantee others will work as OS4 is hard coded to the hardware device 'headphones' 
 
-
+------------------------
+**How to change settings for different hats, cables**
+- After migrating OS4 scan for games with just the sd card. Open ports and there are options there to change to VGA888, VGA666 enable VGA 120hz monitors etc
+- You must run the pi zero2 Pi3 script if you are running on those systems.
+- USB Audio Dac required even for Pi Zero2, Pi3, Pi4. Can probably be fixed, but pi5 is the focus. 
 ------------------------
 Build Sources
 - Debian Bookworm: [raspios_lite_arm64-2024-07-04](https://downloads.raspberrypi.com/raspios_lite_arm64/images/)
