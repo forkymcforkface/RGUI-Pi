@@ -17,6 +17,7 @@
    - Retrotink Ultimate (use VGA888)
    - RGB-Pi cable (full 18bit color)
    - VGA666 (does not display full 18bit colors)
+- 120hz VGA Option. Must apply this with a normal CRT first.
 - You must run the pi zero2 Pi3 script if you are running on those systems.
 - USB Audio Dac required even for Pi Zero2, Pi3, Pi4. Can probably be fixed, but pi5 is the focus. 
 ------------------------
