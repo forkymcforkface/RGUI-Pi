@@ -1,6 +1,7 @@
 - RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch [Dynares](https://github.com/forkymcforkface/RetroArch/edit/master/dynaresinfo.md) for pixel perfect gaming. 
 - It also has the ability to migrate rtomasa OS4 from the original image to the Pi Zero2, Pi3 and Pi5. This utilizes no changes to the original OS4 code as OS4 ui is closed source.
    - This is unsupported and please dont ask the rgbpi devs for support. The primary function of this image is Pi5 with minimal to no testing on other Pi's
+- Add more cores with https://github.com/forkymcforkface/RGBPi-Extra/
 ------------------------
 **How to Migrate OS4 to Pi5**
 - Download the [latest release](https://github.com/forkymcforkface/RGUI-Pi/releases) and burn to an SD card, insert into the Pi5
@@ -44,6 +45,7 @@ Build Sources
 **Things to Note**
 - Interlacing is not possible with gpio on pi5
 - Kodi disabled (do not use)
+- System is overclocked out of the box for Pi4 and Pi5. Fan is required. Overclocking does not void the raspberry pi warranty. 
 - The OS4 UI is half the frames and feels slow, its an incompatibility with OS4 UI and the Pi5 hardware. I cannot fix this since the UI is closed source.
 - If using a pi3 or pi zero2 make sure to scan for games after the first os4 boot, go to ports and apply the pi3/zero2 timings patch.
 - pi pw prior to OS4 migration: rguipi
