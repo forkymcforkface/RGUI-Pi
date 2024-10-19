@@ -13,8 +13,7 @@
 ------------------------
 **How to change settings for different hats, cables**
 - After migrating OS4, scan for games before mounting a drive. Open ports and there are options available:
-   - Lo-tech VGA888 (24bit color)
-   - Retrotink Ultimate (use VGA888)
+   - Lo-tech VGA888 (24bit color on Pi5, looks to be 18bit on pi3, pi4. not sure why)
    - RGB-Pi cable (full 18bit color)
    - VGA666 (does not display full 18bit colors)
 - 120hz VGA Option. Must apply this with a normal CRT first.
