@@ -12,7 +12,7 @@
 
 ------------------------
 **How to change settings for different hats, cables**
-- After migrating OS4, scan for games before mounting a drive. Open ports and there are options available:
+- After migrating OS4, scan for games before mounting a drive, if you jave already mounted a usb drive, unplug it. Open ports and there are options available:
    - Lo-tech VGA888 (24bit color on Pi5, looks to be 18bit on pi3, pi4. not sure why)
    - RGB-Pi cable (full 18bit color)
    - VGA666 (does not display full 18bit colors)
