@@ -1,4 +1,4 @@
-fyi all. There is a MUCH newer version of RGUI-Pi coming out called OS4.5. it will not be a migration tool but OS4 for the Pi5. 
+**There is a MUCH newer version of RGUI-Pi coming out called OS4.5. it will not be a migration tool but OS4 for the Pi5. Check rgb-pi #dev discord channel for updates** 
 
 
 - RGUI-Pi is an advanced CRT only RGUI implementation using rtomasa Retroarch [Dynares](https://github.com/forkymcforkface/RetroArch/edit/master/dynaresinfo.md) for pixel perfect gaming. 
